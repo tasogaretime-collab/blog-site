@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+  slug: string;
+  featured?: boolean;
+}
+
+const { title, description, pubDate, tags = [], slug, featured = false } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<a href={`/blog/${slug}`} class={`card block p-5 border hover:border-karada-blue transition-all duration-200 group ${featured ? 'border-karada-blue/30 bg-karada-blue-light/30' : 'border-gray-200'}`}>
+  {featured && (
+    <div class="text-xs font-bold text-karada-blue mb-2 flex items-center gap-1">
+      <span>★</span> 注目記事
+    </div>
+  )}
+
+  <div class="flex flex-wrap gap-1.5 mb-2">
+    {tags.slice(0, 3).map((tag) => (
+      <span class="tag-badge text-xs">{tag}</span>
+    ))}
+  </div>
+
+  <h3 class="font-bold text-gray-900 group-hover:text-karada-blue transition-colors leading-snug mb-2 text-base">
+    {title}
+  </h3>
+
+  <p class="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-3">{description}</p>
+
+  <div class="flex items-center justify-between text-xs text-gray-400">
+    <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+    <span class="text-karada-blue group-hover:translate-x-1 transition-transform duration-200">続きを読む →</span>
+  </div>
+</a>

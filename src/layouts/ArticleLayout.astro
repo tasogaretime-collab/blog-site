@@ -1,0 +1,137 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SlideViewer from '../components/SlideViewer.astro';
+import ShopCard from '../components/ShopCard.astro';
+import AuthorProfile from '../components/AuthorProfile.astro';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  tags?: string[];
+  slides?: string[];
+  shopItem?: string;
+}
+
+const { title, description, pubDate, updatedDate, tags = [], slides, shopItem } = Astro.props;
+
+// Format dates
+const formattedPubDate = pubDate.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// Get shop item if referenced
+let shopProduct = null;
+if (shopItem) {
+  const shopItems = await getCollection('shop');
+  shopProduct = shopItems.find((item) => item.slug === shopItem);
+}
+---
+
+<BaseLayout title={`${title} | KARADA医療情報ブログ`} description={description}>
+  <article class="max-w-3xl mx-auto px-4 py-10">
+    <!-- Breadcrumb -->
+    <nav class="text-sm text-gray-500 mb-6">
+      <a href="/" class="hover:text-karada-blue">ホーム</a>
+      <span class="mx-2">/</span>
+      <a href="/blog" class="hover:text-karada-blue">記事一覧</a>
+      <span class="mx-2">/</span>
+      <span class="text-gray-700 truncate">{title}</span>
+    </nav>
+
+    <!-- Tags -->
+    {tags.length > 0 && (
+      <div class="flex flex-wrap gap-2 mb-4">
+        {tags.map((tag) => (
+          <a href={`/blog/tag/${tag}`} class="tag-badge hover:bg-karada-blue hover:text-white transition-colors">
+            #{tag}
+          </a>
+        ))}
+      </div>
+    )}
+
+    <!-- Title -->
+    <h1 class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight mb-4">{title}</h1>
+
+    <!-- Meta -->
+    <div class="flex items-center gap-4 text-sm text-gray-500 mb-6 pb-4 border-b border-gray-100">
+      <div class="flex items-center gap-1.5">
+        <div class="w-7 h-7 rounded-full bg-karada-blue flex items-center justify-center">
+          <span class="text-white text-xs font-bold">T</span>
+        </div>
+        <span class="font-medium text-gray-700">Tasunaro</span>
+        <span class="text-gray-400">|</span>
+        <span>感染症専門医 / CTH / DTM&H</span>
+      </div>
+      <time datetime={pubDate.toISOString()} class="ml-auto">
+        {formattedPubDate}
+      </time>
+      {updatedDate && (
+        <time datetime={updatedDate.toISOString()} class="text-xs">
+          (更新: {formattedUpdatedDate})
+        </time>
+      )}
+    </div>
+
+    <!-- Slide Viewer (if slides exist) -->
+    {slides && slides.length > 0 && (
+      <div class="mb-8">
+        <SlideViewer slides={slides} title={title} />
+      </div>
+    )}
+
+    <!-- Article content -->
+    <div class="prose prose-lg max-w-none">
+      <slot />
+    </div>
+
+    <!-- Shop card (if related product exists) -->
+    {shopProduct && (
+      <div class="mt-12 pt-8 border-t border-gray-100">
+        <h3 class="text-lg font-bold text-gray-700 mb-4">この記事で使用した素材</h3>
+        <ShopCard
+          title={shopProduct.data.title}
+          description={shopProduct.data.description}
+          price={shopProduct.data.price}
+          gumroadUrl={shopProduct.data.gumroadUrl}
+          previewImages={shopProduct.data.previewImages}
+          category={shopProduct.data.category}
+        />
+      </div>
+    )}
+
+    <!-- Author profile -->
+    <div class="mt-10">
+      <AuthorProfile />
+    </div>
+
+    <!-- Social share -->
+    <div class="mt-12 pt-8 border-t border-gray-100">
+      <p class="text-sm text-gray-500 mb-3">この記事が役に立ったらシェアしてください</p>
+      <div class="flex gap-3">
+        <a
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-black text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors"
+        >
+          X でシェア
+        </a>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200 text-xs text-gray-500">
+      <strong>免責事項：</strong>本記事は医療情報の提供を目的としており、診断・治療の代替となるものではありません。具体的な医療相談はかかりつけ医にご相談ください。
+    </div>
+  </article>
+</BaseLayout>

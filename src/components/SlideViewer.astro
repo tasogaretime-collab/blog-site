@@ -1,0 +1,93 @@
+---
+interface Props {
+  slides: string[];
+  title?: string;
+  slug?: string;
+}
+
+const { slides, title = '', slug = '' } = Astro.props;
+---
+
+<div class="slide-viewer-wrapper bg-karada-blue-light rounded-xl p-4 border border-karada-blue/20">
+  <div class="flex items-center justify-between mb-3">
+    <h4 class="text-sm font-bold text-karada-blue-dark flex items-center gap-1.5">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+      </svg>
+      スライドで理解する
+    </h4>
+    <span class="text-xs text-gray-500">{slides.length}枚</span>
+  </div>
+
+  <!-- Scrollable slide strip -->
+  <div
+    class="slide-strip flex gap-3 overflow-x-auto pb-3 snap-x snap-mandatory"
+    style="scroll-behavior: smooth; -webkit-overflow-scrolling: touch;"
+  >
+    {slides.map((slide, index) => (
+      <div class="slide-item flex-shrink-0 snap-start cursor-pointer" data-index={index}>
+        <img
+          src={`/slides/${slug}/${slide}`}
+          alt={`${title} スライド ${index + 1}`}
+          class="h-48 md:h-56 w-auto rounded-lg shadow-md border border-white object-contain bg-white slide-thumb"
+          loading="lazy"
+        />
+      </div>
+    ))}
+  </div>
+
+  <!-- Lightbox modal -->
+  <div id="slide-modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onclick="this.classList.add('hidden')">
+    <div class="relative max-w-4xl w-full" onclick="event.stopPropagation()">
+      <img id="slide-modal-img" src="" alt="" class="w-full rounded-xl shadow-2xl" />
+      <div class="flex items-center justify-between mt-4">
+        <button id="slide-prev" class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg transition-colors">← 前へ</button>
+        <span id="slide-counter" class="text-white text-sm"></span>
+        <button id="slide-next" class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg transition-colors">次へ →</button>
+      </div>
+      <button
+        class="absolute top-2 right-2 bg-white/20 hover:bg-white/30 text-white w-8 h-8 rounded-full flex items-center justify-center transition-colors"
+        onclick="document.getElementById('slide-modal').classList.add('hidden')"
+      >✕</button>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ slides, slug, title }}>
+  const thumbs = document.querySelectorAll('.slide-thumb');
+  const modal = document.getElementById('slide-modal');
+  const modalImg = document.getElementById('slide-modal-img');
+  const counter = document.getElementById('slide-counter');
+  const prevBtn = document.getElementById('slide-prev');
+  const nextBtn = document.getElementById('slide-next');
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    currentIndex = index;
+    modalImg.src = `/slides/${slug}/${slides[index]}`;
+    modalImg.alt = `${title} スライド ${index + 1}`;
+    counter.textContent = `${index + 1} / ${slides.length}`;
+  }
+
+  thumbs.forEach((thumb, i) => {
+    thumb.addEventListener('click', () => {
+      showSlide(i);
+      modal.classList.remove('hidden');
+    });
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    if (currentIndex > 0) showSlide(currentIndex - 1);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    if (currentIndex < slides.length - 1) showSlide(currentIndex + 1);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (modal.classList.contains('hidden')) return;
+    if (e.key === 'ArrowLeft' && currentIndex > 0) showSlide(currentIndex - 1);
+    if (e.key === 'ArrowRight' && currentIndex < slides.length - 1) showSlide(currentIndex + 1);
+    if (e.key === 'Escape') modal.classList.add('hidden');
+  });
+</script>

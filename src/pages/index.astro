@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import ShopCard from '../components/ShopCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const latestPosts = sortedPosts.slice(0, 6);
+
+const allShopItems = await getCollection('shop');
+const featuredItems = allShopItems.filter((item) => item.data.featured).slice(0, 3);
+---
+
+<BaseLayout title="感染症専門医の医療情報ブログ | 最新エビデンスをわかりやすく解説">
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-karada-blue-light via-white to-karada-green-light py-16 px-4">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 bg-white border border-karada-blue/20 text-karada-blue text-xs font-medium px-3 py-1.5 rounded-full mb-6 shadow-sm">
+        <span class="w-1.5 h-1.5 bg-karada-green rounded-full animate-pulse"></span>
+        最新の医療情報をエビデンスに基づいてお届け
+      </div>
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-4">
+        感染症専門医が解説する<br class="hidden md:inline" />
+        <span class="text-karada-blue">医療・健康情報</span>
+      </h1>
+      <p class="text-gray-600 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+        ワクチン・感染症・生活習慣病まで、最新の臨床エビデンスをもとに
+        一般の方にもわかりやすく解説します。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/blog" class="btn-primary justify-center">
+          記事を読む
+        </a>
+        <a href="/shop" class="btn-secondary justify-center">
+          医療素材ショップ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section class="max-w-5xl mx-auto px-4 py-14">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900">最新記事</h2>
+        <p class="text-sm text-gray-500 mt-1">エビデンスに基づいた医療情報</p>
+      </div>
+      <a href="/blog" class="text-karada-blue text-sm font-medium hover:underline">
+        すべて見る →
+      </a>
+    </div>
+
+    {latestPosts.length > 0 ? (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {latestPosts.map((post, i) => (
+          <ArticleCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            tags={post.data.tags}
+            slug={post.slug}
+            featured={i === 0}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12 text-gray-400">
+        <p>記事を準備中です</p>
+      </div>
+    )}
+  </section>
+
+  <!-- About the author -->
+  <section class="bg-gray-50 py-12 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+        <div class="flex-shrink-0">
+          <div class="w-20 h-20 rounded-full bg-karada-blue flex items-center justify-center text-white text-2xl font-bold">
+            Dr
+          </div>
+        </div>
+        <div>
+          <h2 class="text-xl font-bold text-gray-900 mb-2">このブログについて</h2>
+          <p class="text-gray-600 leading-relaxed text-sm">
+            感染症専門医として診療を続けながら、医療情報の「正しい伝え方」を考えてきました。
+            このブログでは、ワクチン・感染症・生活習慣病など、実臨床で患者さんからよく聞かれる疑問を中心に、
+            最新のエビデンスをわかりやすく解説していきます。
+          </p>
+          <a href="/about" class="inline-block mt-3 text-karada-blue text-sm font-medium hover:underline">
+            詳しいプロフィール →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop preview -->
+  {featuredItems.length > 0 && (
+    <section class="max-w-5xl mx-auto px-4 py-14">
+      <div class="flex items-center justify-between mb-8">
+        <div>
+          <h2 class="text-2xl font-bold text-gray-900">デジタル素材ショップ</h2>
+          <p class="text-sm text-gray-500 mt-1">医療系アニメーションアイコン・スライドテンプレート</p>
+        </div>
+        <a href="/shop" class="text-karada-blue text-sm font-medium hover:underline">
+          すべて見る →
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {featuredItems.map((item) => (
+          <ShopCard
+            title={item.data.title}
+            description={item.data.description}
+            price={item.data.price}
+            gumroadUrl={item.data.gumroadUrl}
+            previewImages={item.data.previewImages}
+            category={item.data.category}
+            featured={item.data.featured}
+          />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Ad placeholder -->
+  <section class="max-w-5xl mx-auto px-4 pb-8">
+    <div class="bg-gray-100 border border-dashed border-gray-300 rounded-xl p-8 text-center text-gray-400 text-sm">
+      <!-- Google AdSense広告エリア (承認後に有効化) -->
+      広告エリア (準備中)
+    </div>
+  </section>
+</BaseLayout>

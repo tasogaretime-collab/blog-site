@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand-blue: #00B2CA;
+    --color-brand-green: #7DC83E;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-800 antialiased;
+  }
+
+  /* prose styles for article content */
+  .prose h2 {
+    @apply text-2xl font-bold text-karada-blue-dark border-b-2 border-karada-blue pb-2 mt-10 mb-4;
+  }
+
+  .prose h3 {
+    @apply text-xl font-bold text-gray-700 mt-6 mb-3;
+  }
+
+  .prose p {
+    @apply leading-relaxed mb-4 text-gray-700;
+  }
+
+  .prose a {
+    @apply text-karada-blue hover:text-karada-blue-dark underline;
+  }
+
+  .prose table {
+    @apply w-full border-collapse text-sm mb-6;
+  }
+
+  .prose th {
+    @apply bg-karada-blue text-white px-4 py-2 text-left;
+  }
+
+  .prose td {
+    @apply border border-gray-200 px-4 py-2;
+  }
+
+  .prose tr:nth-child(even) td {
+    @apply bg-karada-blue-light;
+  }
+
+  .prose ul {
+    @apply list-disc list-inside mb-4 space-y-1 text-gray-700;
+  }
+
+  .prose ol {
+    @apply list-decimal list-inside mb-4 space-y-1 text-gray-700;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-karada-blue pl-4 italic text-gray-600 my-4;
+  }
+
+  .prose strong {
+    @apply font-bold text-gray-900;
+  }
+
+  .prose code {
+    @apply bg-gray-100 px-1 rounded text-sm font-mono;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 bg-karada-blue text-white font-bold py-3 px-6 rounded-lg hover:bg-karada-blue-dark transition-colors duration-200;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 border-2 border-karada-blue text-karada-blue font-bold py-3 px-6 rounded-lg hover:bg-karada-blue hover:text-white transition-colors duration-200;
+  }
+
+  .tag-badge {
+    @apply inline-block bg-karada-blue-light text-karada-blue text-xs font-medium px-2.5 py-0.5 rounded-full;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 overflow-hidden;
+  }
+}

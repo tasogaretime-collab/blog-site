@@ -1,0 +1,40 @@
+---
+// AdSense広告ユニット
+// 使い方: <AdUnit slot="XXXXXXXXXX" format="auto" />
+// 承認後にenabledをtrueにして、client・slotを自分のIDに変更する
+
+interface Props {
+  slot?: string;
+  format?: 'auto' | 'fluid' | 'rectangle';
+  label?: string;
+}
+
+const {
+  slot = 'XXXXXXXXXX',
+  format = 'auto',
+  label = '広告',
+} = Astro.props;
+
+// AdSense承認前はfalse、承認後はtrueに変更
+const enabled = false;
+---
+
+{enabled ? (
+  <div class="ad-unit my-6">
+    <p class="text-xs text-gray-400 text-center mb-1">{label}</p>
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-full-width-responsive="true"
+    ></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+) : (
+  <!-- AdSense未承認時はプレースホルダーを表示（本番では非表示にする） -->
+  <div class="ad-unit my-6 bg-gray-50 border border-dashed border-gray-200 rounded-lg p-4 text-center text-xs text-gray-400">
+    広告エリア（AdSense承認後に有効化）
+  </div>
+)}

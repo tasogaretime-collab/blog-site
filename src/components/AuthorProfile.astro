@@ -1,0 +1,50 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+{compact ? (
+  <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-lg border border-gray-100">
+    <div class="w-12 h-12 rounded-full bg-karada-blue flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+      T
+    </div>
+    <div>
+      <div class="font-bold text-gray-900 text-sm">Tasunaro</div>
+      <div class="text-xs text-gray-500">感染症専門医 / CTH / DTM&H</div>
+    </div>
+  </div>
+) : (
+  <div class="bg-karada-blue-light rounded-xl p-6 border border-karada-blue/20">
+    <div class="flex items-start gap-4">
+      <div class="w-16 h-16 rounded-full bg-karada-blue flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+        T
+      </div>
+      <div>
+        <div class="font-bold text-gray-900 text-lg mb-0.5">Tasunaro</div>
+        <div class="text-sm text-karada-blue font-medium mb-2">
+          感染症専門医 / CTH（渡航医学認定医）/ DTM&H（熱帯医学）
+        </div>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          医師11年目。前職では感染症科部長として診療に従事。
+          抗菌薬・ワクチン・感染症の最新エビデンスをわかりやすく届けることを目標にブログを運営しています。
+          医療×AI・医療DXにも関心あり。
+        </p>
+        <div class="flex items-center gap-3 mt-3">
+          <a
+            href="https://x.com/Tasunaro"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-black transition-colors"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+            @Tasunaro
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+)}

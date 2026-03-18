@@ -1,0 +1,114 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const { title, description = '感染症専門医が最新のエビデンスに基づいて医療・健康情報をわかりやすく解説します。', ogImage } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- OGP -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:site_name" content="KARADA医療情報ブログ" />
+    <meta property="og:locale" content="ja_JP" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    <!-- Google AdSense (承認後にca-pub-XXXXXXXXXXXXXXXXを自分のIDに置き換えてコメントアウトを外す) -->
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+    <!-- Google Analytics (GA4 測定IDをG-XXXXXXXXXXに置き換えてコメントアウトを外す) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script> -->
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+      <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-full bg-karada-blue flex items-center justify-center">
+            <span class="text-white text-xs font-bold">K</span>
+          </div>
+          <div>
+            <div class="font-bold text-gray-900 group-hover:text-karada-blue transition-colors text-sm leading-tight">感染症専門医の医療情報ブログ</div>
+            <div class="text-xs text-gray-500">感染症専門医</div>
+          </div>
+        </a>
+        <nav class="flex items-center gap-1">
+          <a href="/blog" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">記事</a>
+          <a href="/shop" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">ショップ</a>
+          <a href="/about" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">について</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 mt-16">
+      <div class="max-w-5xl mx-auto px-4 py-10">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <div class="text-white font-bold mb-3">感染症専門医の医療情報ブログ</div>
+            <p class="text-sm text-gray-400 leading-relaxed">感染症専門医が最新のエビデンスに基づいて医療・健康情報をわかりやすく解説します。</p>
+          </div>
+          <div>
+            <div class="text-white font-bold mb-3">コンテンツ</div>
+            <ul class="space-y-1 text-sm">
+              <li><a href="/blog" class="hover:text-karada-blue transition-colors">医療記事</a></li>
+              <li><a href="/shop" class="hover:text-karada-blue transition-colors">デジタル素材ショップ</a></li>
+              <li><a href="/about" class="hover:text-karada-blue transition-colors">ブログについて</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="text-white font-bold mb-3">このサイトについて</div>
+            <p class="text-sm text-gray-400">感染症専門医による医療情報発信</p>
+            <p class="text-sm text-gray-400 mt-1">
+              <a href="/privacy" class="hover:text-gray-200">プライバシーポリシー</a> /
+              <a href="/disclaimer" class="hover:text-gray-200"> 免責事項</a>
+            </p>
+          </div>
+        </div>
+        <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+          <p>© 2025 感染症専門医の医療情報ブログ. All rights reserved.</p>
+          <div class="flex gap-4">
+            <a href="/privacy" class="hover:text-gray-300">プライバシーポリシー</a>
+            <a href="/disclaimer" class="hover:text-gray-300">免責事項</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

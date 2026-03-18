@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AuthorProfile from '../components/AuthorProfile.astro';
+---
+
+<BaseLayout
+  title="Tasunaroについて | 感染症専門医の医療情報ブログ"
+  description="感染症専門医TasunaroのプロフィールとブログTasunaroのコンセプト紹介ページです。"
+>
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">このブログについて</h1>
+
+    <div class="mb-8">
+      <AuthorProfile />
+    </div>
+
+    <div class="prose max-w-none">
+      <h2>ブログを始めた理由</h2>
+      <p>
+        感染症専門医として11年間、日々の診療を続けてきました。外来で患者さんから最もよく受ける質問のひとつが「ネットに書いてあることは本当ですか？」です。
+      </p>
+      <p>
+        医療情報はインターネットに溢れていますが、エビデンスに基づかない情報や数年前の古い情報が混在しています。
+        専門医として「正確な情報を、わかりやすく」届けることがこのブログの目的です。
+      </p>
+
+      <h2>専門分野・資格</h2>
+      <ul>
+        <li><strong>感染症専門医</strong>（日本感染症学会）</li>
+        <li><strong>CTH</strong>（Certificate in Travel Health：渡航医学認定医）</li>
+        <li><strong>DTM&H</strong>（Diploma in Tropical Medicine & Hygiene：熱帯医学・衛生学）</li>
+        <li>前職：某民間病院 感染症科部長</li>
+      </ul>
+
+      <h2>扱うテーマ</h2>
+      <ul>
+        <li><strong>感染症・ワクチン</strong> ── 定期接種の最新情報、感染症予防のエビデンス</li>
+        <li><strong>抗菌薬</strong> ── 適正使用・耐性菌問題をわかりやすく</li>
+        <li><strong>渡航医学・熱帯医学</strong> ── 海外渡航前のワクチン・感染症対策</li>
+        <li><strong>医療×AI・医療DX</strong> ── 医療現場での最新テクノロジー活用</li>
+      </ul>
+
+      <h2>デジタル素材について</h2>
+      <p>
+        ブログで使用した医療系スライドやSVGアイコンを<a href="/shop">ショップ</a>で販売しています。
+        医療従事者・医療系コンテンツクリエイターの方々のご活用をお待ちしています。
+      </p>
+
+      <h2>免責事項</h2>
+      <p>
+        本ブログの情報は医療情報の提供・啓発を目的としており、個別の診断・治療の代替となるものではありません。
+        具体的な症状やご相談は、必ずかかりつけ医にお問い合わせください。
+      </p>
+    </div>
+  </div>
+</BaseLayout>
