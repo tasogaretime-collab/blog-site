@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import AuthorProfile from '../components/AuthorProfile.astro';
 ---
 
 <BaseLayout
@@ -8,66 +7,114 @@ import AuthorProfile from '../components/AuthorProfile.astro';
   description="感染症専門医Tasunaroのプロフィール。資格・経歴・執筆実績・ブログのコンセプトを紹介します。"
 >
   <div class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold text-gray-900 mb-8">プロフィール</h1>
 
-    <div class="mb-10">
-      <AuthorProfile />
+    <!-- ヘッダー -->
+    <div class="text-center mb-10">
+      <div class="w-24 h-24 rounded-full bg-karada-blue flex items-center justify-center text-white text-3xl font-bold mx-auto mb-4">
+        T
+      </div>
+      <h1 class="text-3xl font-bold text-gray-900 mb-1">Tasunaro</h1>
+      <p class="text-karada-blue font-medium">感染症専門医</p>
+    </div>
+
+    <!-- 信頼の要約 -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+      <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+        <div class="text-2xl font-bold text-karada-blue">10年超</div>
+        <div class="text-xs text-gray-500 mt-1">臨床経験</div>
+      </div>
+      <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+        <div class="text-2xl font-bold text-karada-blue">7</div>
+        <div class="text-xs text-gray-500 mt-1">専門資格</div>
+      </div>
+      <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+        <div class="text-2xl font-bold text-karada-blue">10冊超</div>
+        <div class="text-xs text-gray-500 mt-1">医学書執筆</div>
+      </div>
+      <div class="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
+        <div class="text-2xl font-bold text-karada-blue">英文含</div>
+        <div class="text-xs text-gray-500 mt-1">学術論文</div>
+      </div>
     </div>
 
     <div class="prose max-w-none">
 
-      <h2>ブログを始めた理由</h2>
+      <!-- このブログについて -->
+      <h2>このブログで得られること</h2>
       <p>
-        外来で患者さんから最もよく受ける質問のひとつが「ネットに書いてあることは本当ですか？」です。
+        「ネットで調べたけど、どれが正しいかわからない」──外来で患者さんから何度も聞いてきた言葉です。
       </p>
       <p>
-        インターネットには医療情報があふれていますが、エビデンスに基づかない情報や、
-        数年前の古い情報がそのまま残っているケースも少なくありません。
-        感染症専門医として、「正確な情報を、わかりやすく」届けたい──それがこのブログの出発点です。
+        このブログでは、感染症・ワクチン・抗菌薬・渡航医学について、
+        <strong>最新の論文やガイドラインに基づいた情報</strong>を、
+        医療従事者でない方にもわかるようにお伝えしています。
+      </p>
+      <p>
+        書いているのは、2015年に医師免許を取得し、
+        現在も医療機関で感染症の診療に携わっている現役の医師です。
+        臨床で日々感じる「ここが誤解されやすい」「ここを知ってほしい」を、
+        記事のかたちで届けています。
       </p>
 
-      <h2>資格・専門領域</h2>
+      <!-- 資格 -->
+      <h2>専門資格</h2>
 
-      <h3>主な専門資格</h3>
+      <h3>感染症・内科</h3>
       <ul>
-        <li><strong>日本感染症学会専門医</strong></li>
-        <li><strong>日本内科学会認定内科医</strong></li>
-        <li><strong>日本化学療法学会抗菌化学療法指導医</strong></li>
-        <li><strong>日本エイズ学会認定医</strong></li>
+        <li><strong>日本感染症学会専門医</strong> ── 感染症の診断・治療を専門的に行う医師の認定資格</li>
+        <li><strong>日本内科学会認定内科医</strong> ── 内科全般の基盤となる資格</li>
+        <li><strong>日本化学療法学会抗菌化学療法指導医</strong> ── 抗菌薬の適正使用を指導できる資格</li>
+        <li><strong>日本エイズ学会認定医</strong> ── HIV/AIDSの診療に専門性を持つ医師の認定資格</li>
       </ul>
 
       <h3>渡航医学・熱帯医学</h3>
       <ul>
-        <li><strong>国際渡航医学会認定医（Certificate in Travel Health™）</strong></li>
-        <li><strong>熱帯医学・衛生学ディプロマ（DTM&amp;H、長崎大学）</strong></li>
-        <li><strong>日本渡航医学会認定医療職</strong></li>
+        <li><strong>国際渡航医学会認定医（Certificate in Travel Health™）</strong> ── 海外渡航者の健康管理に関する国際資格</li>
+        <li><strong>熱帯医学・衛生学ディプロマ（DTM&amp;H、長崎大学）</strong> ── 熱帯感染症の診療に関する専門教育課程の修了資格</li>
+        <li><strong>日本渡航医学会認定医療職</strong> ── 渡航者の予防接種・健康相談を行う専門職の認定</li>
       </ul>
 
+      <!-- 執筆・学術 -->
       <h2>執筆・学術活動</h2>
       <ul>
-        <li>医学書・専門誌への分担執筆 <strong>10冊以上</strong>（抗菌薬・感染症領域）</li>
+        <li>抗菌薬・感染症領域の医学書・専門誌への分担執筆 <strong>10冊以上</strong></li>
         <li>国内外の学術誌に原著論文・症例報告を発表（<strong>英文論文含む</strong>）</li>
         <li>市民向け医療講演の経験あり</li>
       </ul>
 
-      <h2>扱うテーマ</h2>
-      <ul>
-        <li><strong>感染症・ワクチン</strong> ── 定期接種の最新情報、感染症予防のエビデンス</li>
-        <li><strong>抗菌薬</strong> ── 適正使用・耐性菌問題をわかりやすく</li>
-        <li><strong>渡航医学・熱帯医学</strong> ── 海外渡航前のワクチン・感染症対策</li>
+      <!-- 記事の品質管理 -->
+      <h2>記事の品質管理</h2>
+      <ul class="list-none pl-0">
+        <li class="flex items-start gap-2 mb-2">
+          <span class="text-karada-green font-bold mt-0.5">&#10003;</span>
+          <span>すべての記事は<strong>査読済みの論文・診療ガイドライン・公的機関の情報</strong>に基づいて執筆</span>
+        </li>
+        <li class="flex items-start gap-2 mb-2">
+          <span class="text-karada-green font-bold mt-0.5">&#10003;</span>
+          <span>記事内に<strong>出典を明記</strong>し、読者が元の情報を確認できる状態を維持</span>
+        </li>
+        <li class="flex items-start gap-2 mb-2">
+          <span class="text-karada-green font-bold mt-0.5">&#10003;</span>
+          <span>ガイドライン改訂や新たなエビデンスが出た場合は、<strong>記事を更新</strong></span>
+        </li>
+        <li class="flex items-start gap-2">
+          <span class="text-karada-green font-bold mt-0.5">&#10003;</span>
+          <span>筆者自身が<strong>感染症の臨床経験をもつ現役医師</strong>として、医学的正確性を担保</span>
+        </li>
       </ul>
 
-      <h2>情報の質について</h2>
+      <!-- SNS -->
+      <h2>SNS</h2>
       <p>
-        本ブログの記事は、査読済みの論文・ガイドライン・公的機関の情報をもとに執筆しています。
-        記事内では可能な限り出典を明記し、読者ご自身でも確認できるようにしています。
+        <a href="https://x.com/xRLtqMcxxZ75089" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a>では、ブログ記事の図解を中心に投稿しています。
       </p>
 
+      <!-- 免責事項 -->
       <h2>免責事項</h2>
       <p>
-        本ブログの情報は医療情報の提供・啓発を目的としており、個別の診断・治療の代替となるものではありません。
+        本ブログは医療情報の提供・啓発を目的としており、個別の診断・治療の代替となるものではありません。
         具体的な症状やご相談は、必ずかかりつけ医にお問い合わせください。
-        詳しくは<a href="/disclaimer">免責事項</a>をご覧ください。
+        詳しくは<a href="/disclaimer">免責事項ページ</a>をご覧ください。
       </p>
     </div>
   </div>

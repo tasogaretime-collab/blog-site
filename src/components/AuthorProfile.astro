@@ -12,7 +12,7 @@ const { compact = false } = Astro.props;
     </div>
     <div>
       <div class="font-bold text-gray-900 text-sm">Tasunaro</div>
-      <div class="text-xs text-gray-500">感染症専門医 / CTH / DTM&H</div>
+      <div class="text-xs text-gray-500">感染症専門医 / 医学書執筆10冊以上</div>
     </div>
   </div>
 ) : (
@@ -24,14 +24,19 @@ const { compact = false } = Astro.props;
       <div>
         <div class="font-bold text-gray-900 text-lg mb-0.5">Tasunaro</div>
         <div class="text-sm text-karada-blue font-medium mb-2">
-          感染症専門医 / 抗菌化学療法指導医 / CTH / DTM&H
+          感染症専門医 ── 臨床経験10年超・医学書執筆10冊以上
         </div>
         <p class="text-sm text-gray-600 leading-relaxed">
-          2015年医師免許取得。現在も医療機関で感染症の診療に従事しながら、
-          抗菌薬・ワクチン・感染症の最新エビデンスをわかりやすく届けるためにブログを運営しています。
-          医学書・専門誌への執筆多数、英文論文の発表経験あり。
+          2015年医師免許取得。現在も医療機関で感染症の診療に従事。
+          感染症・ワクチン・抗菌薬・渡航医学について、最新のエビデンスをわかりやすくお伝えしています。
         </p>
-        <div class="flex items-center gap-3 mt-3">
+        <div class="flex items-center gap-4 mt-3">
+          <a
+            href="/about"
+            class="text-xs text-karada-blue font-medium hover:underline transition-colors"
+          >
+            詳しいプロフィール →
+          </a>
           <a
             href="https://x.com/xRLtqMcxxZ75089"
             target="_blank"
