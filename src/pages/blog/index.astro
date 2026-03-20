@@ -12,12 +12,12 @@ const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags))].sort();
 
 <BaseLayout
   title="記事一覧 | 感染症専門医の医療情報ブログ"
-  description="感染症・ワクチン・生活習慣病など、最新の医療情報をエビデンスに基づいて解説する記事一覧です。"
+  description="感染症・ワクチン・抗菌薬・渡航医学について、最新のエビデンスに基づいて解説する記事一覧です。"
 >
   <div class="max-w-5xl mx-auto px-4 py-10">
     <div class="mb-8">
       <h1 class="text-3xl font-bold text-gray-900 mb-2">記事一覧</h1>
-      <p class="text-gray-500">感染症・ワクチン・生活習慣病など、{allPosts.length}本の記事</p>
+      <p class="text-gray-500">感染症・ワクチン・抗菌薬・渡航医学について、{allPosts.length}本の記事</p>
     </div>
 
     <!-- Tag filter -->
