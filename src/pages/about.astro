@@ -4,42 +4,57 @@ import AuthorProfile from '../components/AuthorProfile.astro';
 ---
 
 <BaseLayout
-  title="Tasunaroについて | 感染症専門医の医療情報ブログ"
-  description="感染症専門医TasunaroのプロフィールとブログTasunaroのコンセプト紹介ページです。"
+  title="プロフィール | Tasunaro ─ 感染症専門医の医療情報ブログ"
+  description="感染症専門医Tasunaroのプロフィール。資格・経歴・執筆実績・ブログのコンセプトを紹介します。"
 >
   <div class="max-w-3xl mx-auto px-4 py-12">
-    <h1 class="text-3xl font-bold text-gray-900 mb-8">このブログについて</h1>
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">プロフィール</h1>
 
-    <div class="mb-8">
+    <div class="mb-10">
       <AuthorProfile />
     </div>
 
     <div class="prose max-w-none">
+
       <h2>ブログを始めた理由</h2>
       <p>
-        感染症専門医として11年間、日々の診療を続けてきました。外来で患者さんから最もよく受ける質問のひとつが「ネットに書いてあることは本当ですか？」です。
+        外来で患者さんから最もよく受ける質問のひとつが「ネットに書いてあることは本当ですか？」です。
       </p>
       <p>
-        医療情報はインターネットに溢れていますが、エビデンスに基づかない情報や数年前の古い情報が混在しています。
-        専門医として「正確な情報を、わかりやすく」届けることがこのブログの目的です。
-      </p>
-      <p>
-        発信を通じて信頼を蓄積し、社会貢献と検索資産の構築を目指しています。
-        短期的な売上よりも、感染症専門医としての信頼性を最優先にしています。
+        インターネットには医療情報があふれていますが、エビデンスに基づかない情報や、
+        数年前の古い情報がそのまま残っているケースも少なくありません。
+        感染症専門医として、「正確な情報を、わかりやすく」届けたい──それがこのブログの出発点です。
       </p>
 
-      <h2>専門分野・資格</h2>
+      <h2>資格・専門領域</h2>
+
+      <h3>主な専門資格</h3>
       <ul>
         <li><strong>感染症専門医</strong>（日本感染症学会）</li>
         <li><strong>認定内科医</strong>（日本内科学会）</li>
         <li><strong>抗菌化学療法指導医</strong>（日本化学療法学会）</li>
-        <li><strong>CTH</strong>（Certificate in Travel Health™：国際渡航医学会認定医）</li>
-        <li><strong>DTM&H</strong>（Diploma in Tropical Medicine & Hygiene：長崎大学）</li>
-        <li><strong>エイズ学会認定医</strong>（日本エイズ学会）</li>
+      </ul>
+
+      <h3>渡航医学・熱帯医学</h3>
+      <ul>
+        <li><strong>CTH</strong> ── Certificate in Travel Health™（国際渡航医学会認定医）</li>
+        <li><strong>DTM&amp;H</strong> ── Diploma in Tropical Medicine &amp; Hygiene（長崎大学）</li>
         <li><strong>認定医療職</strong>（日本渡航医学会）</li>
-        <li><strong>インフェクションコントロールドクター</strong></li>
-        <li><strong>臨床研修指導医</strong>（厚生労働省）</li>
-        <li><strong>身体障害者福祉法第15条指定医</strong>（HIVによる免疫機能障害）</li>
+      </ul>
+
+      <h3>その他の資格</h3>
+      <ul>
+        <li>エイズ学会認定医（日本エイズ学会）</li>
+        <li>インフェクションコントロールドクター（ICD）</li>
+        <li>臨床研修指導医（厚生労働省）</li>
+        <li>身体障害者福祉法第15条指定医（HIVによる免疫機能障害）</li>
+      </ul>
+
+      <h2>執筆・学術活動</h2>
+      <ul>
+        <li>医学書・専門誌への分担執筆 <strong>10冊以上</strong>（抗菌薬・感染症領域）</li>
+        <li>国内外の学術誌に原著論文・症例報告を発表（<strong>英文論文含む</strong>）</li>
+        <li>市民向け医療講演の経験あり</li>
       </ul>
 
       <h2>扱うテーマ</h2>
@@ -50,20 +65,17 @@ import AuthorProfile from '../components/AuthorProfile.astro';
         <li><strong>受診判断</strong> ── いつ・どこで受診すべきかの目安</li>
       </ul>
 
-      <h2>発信方針</h2>
+      <h2>情報の質について</h2>
       <p>
-        ブログ記事を発信の主軸とし、週1〜2本を目安に更新しています。
-        量より継続と品質を重視し、最新の臨床エビデンスに基づいた情報をお届けします。
-      </p>
-      <p>
-        <a href="https://x.com/xRLtqMcxxZ75089" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a>では、
-        ブログ記事の図解を中心に投稿しています。
+        本ブログの記事は、査読済みの論文・ガイドライン・公的機関の情報をもとに執筆しています。
+        記事内では可能な限り出典を明記し、読者ご自身でも確認できるようにしています。
       </p>
 
       <h2>免責事項</h2>
       <p>
         本ブログの情報は医療情報の提供・啓発を目的としており、個別の診断・治療の代替となるものではありません。
         具体的な症状やご相談は、必ずかかりつけ医にお問い合わせください。
+        詳しくは<a href="/disclaimer">免責事項</a>をご覧ください。
       </p>
     </div>
   </div>
