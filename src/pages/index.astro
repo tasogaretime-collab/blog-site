@@ -1,15 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleCard from '../components/ArticleCard.astro';
-import ShopCard from '../components/ShopCard.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const latestPosts = sortedPosts.slice(0, 6);
-
-const allShopItems = await getCollection('shop');
-const featuredItems = allShopItems.filter((item) => item.data.featured).slice(0, 3);
 ---
 
 <BaseLayout title="感染症専門医の医療情報ブログ | 最新エビデンスをわかりやすく解説">
@@ -32,8 +28,8 @@ const featuredItems = allShopItems.filter((item) => item.data.featured).slice(0,
         <a href="/blog" class="btn-primary justify-center">
           記事を読む
         </a>
-        <a href="/shop" class="btn-secondary justify-center">
-          医療素材ショップ
+        <a href="/about" class="btn-secondary justify-center">
+          プロフィール
         </a>
       </div>
     </div>
@@ -94,34 +90,6 @@ const featuredItems = allShopItems.filter((item) => item.data.featured).slice(0,
       </div>
     </div>
   </section>
-
-  <!-- Shop preview -->
-  {featuredItems.length > 0 && (
-    <section class="max-w-5xl mx-auto px-4 py-14">
-      <div class="flex items-center justify-between mb-8">
-        <div>
-          <h2 class="text-2xl font-bold text-gray-900">デジタル素材ショップ</h2>
-          <p class="text-sm text-gray-500 mt-1">医療系アニメーションアイコン・スライドテンプレート</p>
-        </div>
-        <a href="/shop" class="text-karada-blue text-sm font-medium hover:underline">
-          すべて見る →
-        </a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {featuredItems.map((item) => (
-          <ShopCard
-            title={item.data.title}
-            description={item.data.description}
-            price={item.data.price}
-            gumroadUrl={item.data.gumroadUrl}
-            previewImages={item.data.previewImages}
-            category={item.data.category}
-            featured={item.data.featured}
-          />
-        ))}
-      </div>
-    </section>
-  )}
 
   <!-- Ad placeholder -->
   <section class="max-w-5xl mx-auto px-4 pb-8">

@@ -1,9 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 import SlideViewer from '../components/SlideViewer.astro';
-import ShopCard from '../components/ShopCard.astro';
 import AuthorProfile from '../components/AuthorProfile.astro';
-import { getCollection } from 'astro:content';
 
 interface Props {
   title: string;
@@ -12,10 +10,9 @@ interface Props {
   updatedDate?: Date;
   tags?: string[];
   slides?: string[];
-  shopItem?: string;
 }
 
-const { title, description, pubDate, updatedDate, tags = [], slides, shopItem } = Astro.props;
+const { title, description, pubDate, updatedDate, tags = [], slides } = Astro.props;
 
 // Format dates
 const formattedPubDate = pubDate.toLocaleDateString('ja-JP', {
@@ -28,13 +25,6 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
   month: 'long',
   day: 'numeric',
 });
-
-// Get shop item if referenced
-let shopProduct = null;
-if (shopItem) {
-  const shopItems = await getCollection('shop');
-  shopProduct = shopItems.find((item) => item.slug === shopItem);
-}
 ---
 
 <BaseLayout title={`${title} | KARADA医療情報ブログ`} description={description}>
@@ -93,21 +83,6 @@ if (shopItem) {
     <div class="prose prose-lg max-w-none">
       <slot />
     </div>
-
-    <!-- Shop card (if related product exists) -->
-    {shopProduct && (
-      <div class="mt-12 pt-8 border-t border-gray-100">
-        <h3 class="text-lg font-bold text-gray-700 mb-4">この記事で使用した素材</h3>
-        <ShopCard
-          title={shopProduct.data.title}
-          description={shopProduct.data.description}
-          price={shopProduct.data.price}
-          gumroadUrl={shopProduct.data.gumroadUrl}
-          previewImages={shopProduct.data.previewImages}
-          category={shopProduct.data.category}
-        />
-      </div>
-    )}
 
     <!-- Author profile -->
     <div class="mt-10">
