@@ -7,9 +7,7 @@ const { compact = false } = Astro.props;
 
 {compact ? (
   <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-lg border border-gray-100">
-    <div class="w-12 h-12 rounded-full bg-karada-blue flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-      T
-    </div>
+    <img src="/images/profile.jpg" alt="Tasunaro" class="w-12 h-12 rounded-full object-cover flex-shrink-0" />
     <div>
       <div class="font-bold text-gray-900 text-sm">Tasunaro</div>
       <div class="text-xs text-gray-500">感染症専門医</div>
@@ -18,9 +16,7 @@ const { compact = false } = Astro.props;
 ) : (
   <div class="bg-karada-blue-light rounded-xl p-6 border border-karada-blue/20">
     <div class="flex items-start gap-4">
-      <div class="w-16 h-16 rounded-full bg-karada-blue flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
-        T
-      </div>
+      <img src="/images/profile.jpg" alt="Tasunaro" class="w-16 h-16 rounded-full object-cover flex-shrink-0" />
       <div>
         <div class="font-bold text-gray-900 text-lg mb-0.5">Tasunaro</div>
         <div class="text-sm text-karada-blue font-medium mb-2">感染症専門医</div>
