@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://karada-blog.vercel.app',
+  site: 'https://blog-site-six-liart.vercel.app',
   integrations: [mdx(), sitemap(), tailwind()],
 });

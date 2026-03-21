@@ -13,6 +13,28 @@ interface Props {
 }
 
 const { title, description, pubDate, updatedDate, tags = [], slides } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const articleJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "headline": title,
+  "description": description,
+  "datePublished": pubDate.toISOString(),
+  ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
+  "author": {
+    "@type": "Person",
+    "name": "Tasunaro",
+    "jobTitle": "感染症専門医",
+    "url": new URL("/about", Astro.site).href,
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Tasunaro",
+  },
+  "mainEntityOfPage": canonicalURL.href,
+  ...(tags.length > 0 && { "keywords": tags.join(", ") }),
+};
 
 // Format dates
 const formattedPubDate = pubDate.toLocaleDateString('ja-JP', {
@@ -28,6 +50,9 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
 ---
 
 <BaseLayout title={`${title} | Tasunaro`} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleJsonLd)} />
+  </Fragment>
   <article class="max-w-3xl mx-auto px-4 py-10">
     <!-- Breadcrumb -->
     <nav class="text-sm text-gray-500 mb-6">
@@ -55,9 +80,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
     <!-- Meta -->
     <div class="flex items-center gap-4 text-sm text-gray-500 mb-6 pb-4 border-b border-gray-100">
       <div class="flex items-center gap-1.5">
-        <div class="w-7 h-7 rounded-full bg-karada-blue flex items-center justify-center">
-          <span class="text-white text-xs font-bold">T</span>
-        </div>
+        <img src="/images/profile.jpg" alt="Tasunaro" class="w-7 h-7 rounded-full object-cover" />
         <span class="font-medium text-gray-700">Tasunaro</span>
         <span class="text-gray-400">|</span>
         <span>感染症専門医 / CTH / DTM&H</span>

@@ -9,6 +9,8 @@ interface Props {
 
 const { title, description = '感染症専門医が最新のエビデンスに基づいて医療・健康情報をわかりやすく解説します。', ogImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const defaultOgImage = new URL('/images/og-default.png', Astro.site).href;
+const resolvedOgImage = ogImage || defaultOgImage;
 ---
 
 <!doctype html>
@@ -28,7 +30,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={resolvedOgImage} />
     <meta property="og:site_name" content="Tasunaro ─ 感染症専門医の医療情報ブログ" />
     <meta property="og:locale" content="ja_JP" />
 
@@ -36,10 +38,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    {ogImage && <meta name="twitter:image" content={ogImage} />}
+    <meta name="twitter:image" content={resolvedOgImage} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Tasunaro ─ 感染症専門医の医療情報ブログ",
+      "url": Astro.site?.href,
+      "author": {
+        "@type": "Person",
+        "name": "Tasunaro",
+        "jobTitle": "感染症専門医",
+        "url": new URL("/about", Astro.site).href,
+      },
+    })} />
 
     <!-- Google AdSense (承認後にca-pub-XXXXXXXXXXXXXXXXを自分のIDに置き換えてコメントアウトを外す) -->
     <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+    <slot name="head" />
 
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDBGCC9WCV"></script>
