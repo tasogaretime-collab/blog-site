@@ -5,9 +5,10 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  ogType?: 'website' | 'article';
 }
 
-const { title, description = '感染症専門医が最新のエビデンスに基づいて医療・健康情報をわかりやすく解説します。', ogImage } = Astro.props;
+const { title, description = '感染症専門医が最新のエビデンスに基づいて医療・健康情報をわかりやすく解説します。', ogImage, ogType = 'website' } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const defaultOgImage = new URL('/images/og-default.png', Astro.site).href;
 const resolvedOgImage = ogImage || defaultOgImage;
@@ -26,7 +27,7 @@ const resolvedOgImage = ogImage || defaultOgImage;
     <link rel="canonical" href={canonicalURL} />
 
     <!-- OGP -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -115,7 +116,7 @@ const resolvedOgImage = ogImage || defaultOgImage;
           </div>
         </div>
         <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-          <p>© 2025 Tasunaro. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Tasunaro. All rights reserved.</p>
           <div class="flex gap-4">
             <a href="/privacy" class="hover:text-gray-300">プライバシーポリシー</a>
             <a href="/disclaimer" class="hover:text-gray-300">免責事項</a>
