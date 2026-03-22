@@ -174,7 +174,7 @@
   /* 参考文献リスト */
   .prose h2#参考文献 + ol,
   .prose h2#参考文献 ~ ol {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
     color: var(--color-text-secondary);
   }
 
