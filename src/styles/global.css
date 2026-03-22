@@ -287,11 +287,6 @@
 
 .article-toc-item {
   counter-increment: toc-counter;
-  position: relative;
-  padding-left: 2.5em;
-  min-height: 2em;
-  display: flex;
-  align-items: center;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
   border-radius: 6px;
@@ -302,18 +297,21 @@
   background-color: rgba(0, 178, 202, 0.06);
 }
 
-.article-toc-item::before {
+.article-toc-item a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.article-toc-item a::before {
   content: counter(toc-counter);
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  flex-shrink: 0;
   width: 1.7em;
   height: 1.7em;
   background: var(--color-brand-blue);
   color: white;
   border-radius: 50%;
-  display: grid;
+  display: inline-grid;
   place-items: center;
   font-size: 0.8rem;
   font-weight: 700;
