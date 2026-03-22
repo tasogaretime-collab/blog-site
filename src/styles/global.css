@@ -68,7 +68,8 @@
   }
 
   .prose table {
-    @apply w-full text-sm mb-6;
+    @apply w-full mb-6;
+    font-size: 0.95rem;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 12px;
