@@ -280,13 +280,19 @@
 
 .article-toc-list {
   list-style: none !important;
-  padding: 0;
+  padding: 0 !important;
   margin: 0;
-  counter-reset: toc-counter;
+}
+
+.article-toc-list li {
+  padding-left: 0 !important;
+}
+
+.article-toc-list li::before {
+  display: none !important;
 }
 
 .article-toc-item {
-  counter-increment: toc-counter;
   position: relative;
   padding-left: 0;
   padding-top: 0.5rem;
