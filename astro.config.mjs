@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://blog-site-six-liart.vercel.app',
+  site: 'https://tasunaro.com',
   integrations: [mdx(), sitemap(), tailwind()],
 });

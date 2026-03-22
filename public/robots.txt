@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://blog-site-six-liart.vercel.app/sitemap-index.xml
+Sitemap: https://tasunaro.com/sitemap-index.xml
