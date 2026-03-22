@@ -257,7 +257,7 @@
 
 .article-toc-title {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   color: #2c2c2c;
   margin-bottom: 0.75rem;
 }
@@ -307,7 +307,7 @@
 .article-toc-item a {
   color: #444;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 .article-toc-item a:hover {
