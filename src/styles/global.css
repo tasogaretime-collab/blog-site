@@ -286,7 +286,6 @@
 }
 
 .article-toc-item {
-  counter-increment: toc-counter;
   display: flex;
   align-items: center;
   gap: 0.6em;
@@ -296,20 +295,23 @@
   list-style: none !important;
 }
 
+.article-toc-item::before {
+  display: none !important;
+}
+
 .article-toc-item:hover {
   background-color: rgba(0, 178, 202, 0.06);
 }
 
-.article-toc-item::before {
-  content: counter(toc-counter) !important;
-  display: inline-grid !important;
-  place-items: center;
+.toc-badge {
   flex-shrink: 0;
   width: 1.7em;
   height: 1.7em;
-  background: var(--color-brand-blue) !important;
-  color: white !important;
-  border-radius: 50% !important;
+  background: var(--color-brand-blue);
+  color: white;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
   font-size: 0.8rem;
   font-weight: 700;
   line-height: 1;
