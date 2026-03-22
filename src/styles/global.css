@@ -210,6 +210,22 @@
   }
 }
 
+/* ===== サイドバー目次 ===== */
+.toc-link {
+  display: block;
+  padding: 0.3rem 0 0.3rem 1rem;
+  font-size: 0.8rem;
+  color: #c0c0c0;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.toc-link:hover {
+  color: #666;
+  border-left-color: var(--color-brand-blue);
+}
+
 /* ===== 記事コンポーネント ===== */
 
 /* サマリーボックス */
@@ -287,7 +303,8 @@
   content: counter(toc-counter);
   position: absolute;
   left: 0;
-  top: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
   width: 1.8em;
   height: 1.8em;
   background: var(--color-brand-blue);
