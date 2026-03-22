@@ -320,6 +320,11 @@
 
 .article-toc-list .article-toc-item {
   list-style: none !important;
+  padding-left: 0 !important;
+}
+
+.article-toc-list .article-toc-item::before {
+  display: none !important;
 }
 
 .article-toc-item a {
