@@ -282,21 +282,18 @@
   list-style: none !important;
   padding: 0 !important;
   margin: 0;
-}
-
-.article-toc-list li {
-  padding-left: 0 !important;
-}
-
-.article-toc-list li::before {
-  display: none !important;
+  counter-reset: toc-counter;
 }
 
 .article-toc-item {
+  counter-increment: toc-counter;
   position: relative;
-  padding-left: 0;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-left: 2.5em;
+  min-height: 2em;
+  display: flex;
+  align-items: center;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
   border-radius: 6px;
   transition: background-color 0.15s;
 }
@@ -305,23 +302,36 @@
   background-color: rgba(0, 178, 202, 0.06);
 }
 
+.article-toc-item::before {
+  content: counter(toc-counter);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.7em;
+  height: 1.7em;
+  background: var(--color-brand-blue);
+  color: white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
 .article-toc-list .article-toc-item {
   list-style: none !important;
 }
 
 .article-toc-item a {
+  color: #444;
   text-decoration: none;
   font-size: 1.1rem;
-  font-weight: 600;
-  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  transition: opacity 0.15s;
 }
 
 .article-toc-item a:hover {
-  opacity: 0.7;
+  color: var(--color-brand-blue);
 }
 
 /* スタットカード */
