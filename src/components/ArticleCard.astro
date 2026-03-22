@@ -5,10 +5,11 @@ interface Props {
   pubDate: Date;
   tags?: string[];
   slug: string;
+  ogImage?: string;
   featured?: boolean;
 }
 
-const { title, description, pubDate, tags = [], slug, featured = false } = Astro.props;
+const { title, description, pubDate, tags = [], slug, ogImage, featured = false } = Astro.props;
 
 const formattedDate = pubDate.toLocaleDateString('ja-JP', {
   year: 'numeric',
@@ -18,6 +19,12 @@ const formattedDate = pubDate.toLocaleDateString('ja-JP', {
 ---
 
 <a href={`/blog/${slug}`} class={`card block p-5 border hover:border-karada-blue transition-all duration-200 group ${featured ? 'border-karada-blue/30 bg-karada-blue-light/30' : 'border-gray-200'}`}>
+  {ogImage && (
+    <div class="-mx-5 -mt-5 mb-4">
+      <img src={ogImage} alt="" class="w-full rounded-t-xl object-cover aspect-[1.91/1]" loading="lazy" />
+    </div>
+  )}
+
   {featured && (
     <div class="text-xs font-bold text-karada-blue mb-2 flex items-center gap-1">
       <span>★</span> 注目記事
