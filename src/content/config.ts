@@ -11,6 +11,10 @@ const blog = defineCollection({
     slides: z.array(z.string()).optional(),
     ogImage: z.string().optional(),
     draft: z.boolean().default(false),
+    faq: z.array(z.object({
+      q: z.string(),
+      a: z.string(),
+    })).optional(),
   }),
 });
 
