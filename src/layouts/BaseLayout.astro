@@ -98,10 +98,14 @@ const resolvedOgImage = ogImage ? new URL(ogImage, Astro.site).href : defaultOgI
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 mt-16">
       <div class="max-w-5xl mx-auto px-4 py-10">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div>
             <div class="text-white font-bold mb-3">Tasunaro</div>
-            <p class="text-sm text-gray-400 leading-relaxed">感染症専門医が、最新のエビデンスをもとに医療・健康情報をわかりやすくお届けします。</p>
+            <p class="text-sm text-gray-400 leading-relaxed mb-3">感染症専門医が、最新のエビデンスをもとに医療・健康情報をわかりやすくお届けします。</p>
+            <a href="https://x.com/xRLtqMcxxZ75089" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-sm text-gray-400 hover:text-white transition-colors">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              @Tasunaro
+            </a>
           </div>
           <div>
             <div class="text-white font-bold mb-3">コンテンツ</div>
@@ -110,13 +114,6 @@ const resolvedOgImage = ogImage ? new URL(ogImage, Astro.site).href : defaultOgI
               <li><a href="/about" class="hover:text-karada-blue transition-colors">プロフィール</a></li>
               <li><a href="/contact" class="hover:text-karada-blue transition-colors">お問い合わせ</a></li>
             </ul>
-          </div>
-          <div>
-            <div class="text-white font-bold mb-3">このサイトについて</div>
-            <p class="text-sm text-gray-400 mt-1">
-              <a href="/privacy" class="hover:text-gray-200">プライバシーポリシー</a> /
-              <a href="/disclaimer" class="hover:text-gray-200"> 免責事項</a>
-            </p>
           </div>
         </div>
         <div class="border-t border-gray-700 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
