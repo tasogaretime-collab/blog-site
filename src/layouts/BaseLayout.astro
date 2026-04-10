@@ -85,6 +85,7 @@ const resolvedOgImage = ogImage ? new URL(ogImage, Astro.site).href : defaultOgI
         <nav class="flex items-center gap-1">
           <a href="/blog" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">記事</a>
           <a href="/about" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">プロフィール</a>
+          <a href="/contact" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">お問い合わせ</a>
         </nav>
       </div>
     </header>
@@ -107,13 +108,15 @@ const resolvedOgImage = ogImage ? new URL(ogImage, Astro.site).href : defaultOgI
             <ul class="space-y-1 text-sm">
               <li><a href="/blog" class="hover:text-karada-blue transition-colors">医療記事</a></li>
               <li><a href="/about" class="hover:text-karada-blue transition-colors">プロフィール</a></li>
+              <li><a href="/contact" class="hover:text-karada-blue transition-colors">お問い合わせ</a></li>
             </ul>
           </div>
           <div>
             <div class="text-white font-bold mb-3">このサイトについて</div>
             <p class="text-sm text-gray-400 mt-1">
               <a href="/privacy" class="hover:text-gray-200">プライバシーポリシー</a> /
-              <a href="/disclaimer" class="hover:text-gray-200"> 免責事項</a>
+              <a href="/disclaimer" class="hover:text-gray-200"> 免責事項</a> /
+              <a href="/contact" class="hover:text-gray-200"> お問い合わせ</a>
             </p>
           </div>
         </div>
