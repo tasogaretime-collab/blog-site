@@ -1,0 +1,229 @@
+---
+title: "AmpC産生菌の治療戦略——IDSA 2024を5軸で読み解く"
+description: "AmpC産生菌の治療をIDSA 2024を軸に整理。菌種別リスク、セフェピムとP/Tの使い分け、日本の疫学を感染症専門医が解説。"
+pubDate: 2026-04-17
+tags:
+  - 感染症
+  - 抗菌薬
+  - AMR
+  - AmpC
+  - 耐性菌
+ogImage: "/images/blog/ampc-producing-enterobacterales/og-image.png"
+draft: false
+faq:
+  - q: "<em>E. cloacae</em>菌血症でセフトリアキソンが感受性（S）なら、そのまま続けてよいですか？"
+    a: "侵襲性感染では推奨されません。治療中の脱抑制で約20%が耐性化すると報告されており、IDSA 2024も菌血症ではセフェピム（MIC≤2μg/mL）またはカルバペネムへの切り替えを推奨しています。"
+  - q: "「SPICE」という覚え方は今も有効ですか？"
+    a: "部分的には有用ですが、菌種間で耐性化リスクが大きく異なることが分かってきました。臨床的に特に注意すべきは<em>E. cloacae</em> complex、<em>C. freundii</em>、<em>K. aerogenes</em>の3菌種で、<em>S. marcescens</em>や<em>M. morganii</em>、<em>Providencia</em>はリスクが低い可能性があります。"
+  - q: "セフェピムのMICが4〜8（SDD）だった場合はどう扱いますか？"
+    a: "IDSA 2024はSDD域について「2g q8h × 3時間延長投与を前提に治療候補になりうる」としており、一律のカルバペネム切り替えではありません。ただし重症例・ESBL共産生疑い・ソースコントロール不十分例ではカルバペネムに傾くのが安全で、症例依存の判断になります。"
+  - q: "ピペラシリン・タゾバクタム（P/T）はAmpC産生菌に本当に使えないのですか？"
+    a: "「使えない」ではなく「侵襲性感染の第一選択にしにくい」が正確な表現です。MERINO-2試験ではP/Tの微生物学的失敗が13%（meropenem 0%、p=0.03）と有意に高く、IDSA 2024も侵襲性感染では suggest against としています。軽症例や臨床的に明らかに改善した症例でのステップダウン候補としては個別に検討の余地があります。"
+  - q: "日本の<em>E. cloacae</em>のセフェピム耐性率はどのくらいですか？"
+    a: "京都大学の194例の菌血症コホート（2002-2018年）では、セフェピム非感受性は7%でした。欧米と比較して低い水準ですが、cefotaxime非感受性株に限れば19%に上昇します。"
+---
+
+術後、血液培養から *Enterobacter cloacae* が検出されました。感受性検査を見ると、セフトリアキソン（CTRX）は「S（susceptible）」。このままCTRXを続けてよいか、セフェピムかカルバペネムへ切り替えるか。感染症コンサルトでよく出会う場面です。
+
+この判断は、AmpC型β-ラクタマーゼをどう読むかに集約されます。ESBLと並ぶ代表的な耐性機構でありながら、「感受性検査で『S』なのに治療中に耐性化する」という厄介な性質を持っています。IDSA 2024ガイダンスを実務に落とし込むと、「菌種 × 感染部位 × 重症度 × CFPMのMIC × ESBL共産生の可能性」の5軸で考えると理解しやすくなります。本記事ではこの5軸を、最新のエビデンスと日本の疫学を重ねて読み直していきます。
+
+<div class="not-prose article-summary-box">
+  <p class="summary-label">この記事のポイント</p>
+  <div class="space-y-1">
+    <div class="summary-item">
+      <span>AmpCは第3世代セファロスポリン投与中に脱抑制で耐性化しうる。感受性「S」の結果を鵜呑みにしない</span>
+    </div>
+    <div class="summary-item">
+      <span>菌種で危険度は均一ではない。中〜高リスクは <em>E. cloacae</em> complex / <em>C. freundii</em> / <em>K. aerogenes</em></span>
+    </div>
+    <div class="summary-item">
+      <span>侵襲性感染ではCTRXとP/Tを第一選択にしない</span>
+    </div>
+    <div class="summary-item">
+      <span>実務の軸はセフェピム（MIC≤2で第一選択、SDDは高用量延長投与で症例依存）とカルバペネムの使い分け</span>
+    </div>
+  </div>
+</div>
+
+<nav class="not-prose article-toc">
+  <p class="article-toc-title">目次</p>
+  <ul class="article-toc-list">
+    <li class="article-toc-item"><span class="toc-badge">1</span><a href="#ampcの何が臨床的に厄介なのか">AmpCの何が臨床的に厄介なのか</a></li>
+    <li class="article-toc-item"><span class="toc-badge">2</span><a href="#治療中耐性化約20という数字の出どころ">治療中耐性化「約20%」という数字の出どころ</a></li>
+    <li class="article-toc-item"><span class="toc-badge">3</span><a href="#spiceは古い菌種で危険度は違う">「SPICE」は古い：菌種で危険度は違う</a></li>
+    <li class="article-toc-item"><span class="toc-badge">4</span><a href="#2024-idsaが示した治療戦略">2024 IDSAが示した治療戦略</a></li>
+    <li class="article-toc-item"><span class="toc-badge">5</span><a href="#セフェピムはなぜ使えるのか3つのキー論文">セフェピムはなぜ使えるのか：3つのキー論文</a></li>
+    <li class="article-toc-item"><span class="toc-badge">6</span><a href="#ptはなぜ避けるのかmerino-2の微生物学的失敗シグナル">P/Tはなぜ避けるのか：MERINO-2の微生物学的失敗シグナル</a></li>
+    <li class="article-toc-item"><span class="toc-badge">7</span><a href="#日本の疫学京都194例の分子疫学">日本の疫学：京都194例の分子疫学</a></li>
+  </ul>
+</nav>
+
+---
+
+## AmpCの何が臨床的に厄介なのか
+
+AmpC型β-ラクタマーゼは、Ambler分類class C（セファロスポリナーゼ：セファロスポリンを分解する酵素群）に属します。ペニシリン系・第1〜3世代セファロスポリン・セファマイシン系を分解する一方、カルバペネム系は分解できず、既存のβ-ラクタマーゼ阻害薬（クラブラン酸、タゾバクタム）では十分に阻害されません。この「阻害薬が効かない」点がESBL産生菌と並ぶ代表的耐性機構でありながら、別枠で議論される理由になります。
+
+AmpC遺伝子（*bla*AmpC）は、染色体性とプラスミド性の2系統で伝播します。臨床的に特に重要なのは染色体性AmpCで、腸内細菌目の多くが染色体上に保持しています。*E. coli* や *Shigella* はAmpR（転写制御因子）を欠くため通常は低レベルの発現にとどまりますが、*Enterobacter* や *Citrobacter* などはAmpRを持ち、抗菌薬曝露に応答して誘導（induction）・脱抑制（de-repression）が起こります。
+
+誘導と脱抑制の違いは、臨床判断で決定的です。誘導は抗菌薬投与中に一過性にAmpC産生が増える現象で、投与が終われば感受性は戻ります。一方、脱抑制は *ampD*（AmpC発現を抑える制御遺伝子）などに変異が入り、恒常的にAmpCを高発現する株が選択される不可逆な変化です。感受性株の中に10⁶〜10⁸個に1個の頻度で脱抑制株が存在しており、第3世代セファロスポリンのようにAmpC誘導能が低くAmpC分解に弱い薬を投与し続けると、感受性株が死滅して脱抑制株が選択され、治療中に耐性化します。感受性検査で「S」の結果が出ても油断できないのはこのためです。
+
+## 治療中耐性化「約20%」という数字の出どころ
+
+AmpC産生菌の治療中耐性化を広く認識させたのが、Chowらの古典的研究です。3次施設6病院で前向きに集めた *Enterobacter* 菌血症の連続症例で、初回の感受性検査時点で多剤耐性を示していた株は、第3世代セファロスポリン前投与歴ありの群では69%（22/32）、なしの群では20%（14/71）でした。さらに初回感受性だった症例のうち、第3世代セファロスポリン治療中に耐性化したのは19%（6/31）。これ以降「第3世代セファロスポリン使用中に約2割が耐性化する」という臨床感覚が定着しました。
+
+その後、Kayeらは広域セファロスポリン曝露が *Enterobacter* 治療中の耐性化と独立して関連することを示し、Choiらは *Enterobacteriaceae* のAmpC脱抑制を追跡して第3世代セファロスポリンで特に出現しやすいことを検証しました。IDSAが「約20%」と見積もる背景には、この系譜の臨床研究があります。
+
+ただしこの「約20%」は、主に中〜高リスク3菌種（*E. cloacae* / *C. freundii* / *K. aerogenes*）での概算であり、古典研究と複数の観察研究を統合した数字です。同一株の分子的検証が十分でない、現行CLSI（米国臨床・検査標準協会）ブレイクポイントへの読み替えに限界がある、といった点はIDSA 2024本文でも明記されています。したがって「約20%」は方向性を示す数字として扱い、菌種・MIC・臨床経過を見て個別に判断するのが基本になります。
+
+## 「SPICE」は古い：菌種で危険度は違う
+
+AmpC高リスク菌を覚えるための古典的な語呂合わせが「SPICE」——*Serratia*、*Providencia*、indole-positive *Proteus*、*Citrobacter*、*Enterobacter* です。研修医のときに教わった方も多いでしょう。
+
+しかし、このくくりは現代の知見に照らすと粗雑です。そもそも "I" が指すのは、頻度の高い *P. mirabilis* ではなく *P. vulgaris* などのインドール陽性株で、しかもその誘導性β-ラクタマーゼはAmpC（class C）ではなくclass A酵素です。つまり "I" は分子レベルでは本来AmpCの話ではなく、IDSA 2024も *Proteus* をAmpC高リスク菌種から外しています。菌種ごとに脱抑制変異の起こりやすさがまったく違うことも、分子レベルで明らかになってきました。*S. marcescens* や *M. morganii* は *E. cloacae* より100〜1000倍も脱抑制が起こりにくいことが、Kohlmannらのfluctuation analysis（変異率測定法）で示されています。さらに *S. marcescens* のAmpC誘導機構が *E. cloacae* と遺伝学的に異なり、誘導レベルが低く脱抑制も安定化しない理由も、近年の分子生物学的研究で説明されています。
+
+![AmpC産生菌の菌種別リスク階層](/images/blog/ampc-producing-enterobacterales/ampc-species-risk.png)
+
+Tebano 2024のレビューとIDSA 2024ガイダンスを重ねると、上図のように3〜4群に整理できます。この分類で扱いが分かれるのが *Hafnia alvei* です。変異率データでは *E. cloacae* complex 等と同程度に高い一方、臨床的な治療中耐性化の頻度を示すデータは乏しいのが現状です。IDSA 2024も「エビデンス不足でASTに従う」と明示しており、一律に「低リスク」と断じない方が安全です。
+
+実務上は、中〜高リスクの3菌種（*E. cloacae* / *C. freundii* / *K. aerogenes*）を「CTRXを安易に続けない」対象として意識するのがもっとも実用的です。低リスク菌や *M. morganii*、*S. marcescens* に対して反射的にカルバペネムを使うのは、多くの場合、過剰治療になります。
+
+1991年のChow以降、この30年でAmpC産生菌の理解は大きく書き換えられてきました。2018年 Kohlmann（菌種ごとの脱抑制変異率を分子レベルで定量）、2021年 MERINO-2（P/Tの微生物学的失敗シグナル）、2022年 IDSA（SDD慎重論）、2024年 IDSA（SDD緩和）。臨床判断は「SPICE菌すべてが危ない」という粗い理解から、菌種・MIC・部位を見分ける精緻な判断へと、確実に進化してきました。
+
+## 2024 IDSAが示した治療戦略
+
+米国感染症学会（IDSA）は、2024年8月にGram陰性耐性菌の治療ガイダンスを更新しました。不必要なカルバペネム使用を抑えつつ第3世代セファロスポリンのリスクも回避する、という方向性が明確になっています（日本でもAMR対策アクションプラン2023-2027で、静注カルバペネム使用量の削減が成果指標として掲げられています）。AmpC産生菌に関する要点は以下の通りです。
+
+### セフトリアキソン（CTRX）
+
+中〜高リスク3菌種による侵襲性感染では、経験的・確定治療のいずれにおいても推奨されません（治療中の脱抑制が臨床的に無視できないため）。一方、単純性膀胱炎などの比較的軽症例では合理的に使える余地があり、侵襲性感染で経過が明らかに改善した後にCTRXへ移行する選択肢も残されています。「一律に切る」ではなく「状況で線を引く」のがガイダンスの立場です。
+
+### ピペラシリン・タゾバクタム（P/T）
+
+侵襲性感染では推奨されません（suggest against：IDSAガイダンスの「推奨しない」表現）。MERINO-2試験（後述）での微生物学的失敗シグナルとその後の観察研究を根拠にしています。ただし軽症で他の選択肢が乏しい場合、臨床的に安定した時点での移行余地は残ります。「使えない」ではなく「侵襲性感染の第一選択にしにくい」が正確な表現です。
+
+### セフェピム（CFPM）
+
+中〜高リスク3菌種（*E. cloacae* complex / *K. aerogenes* / *C. freundii*）の侵襲性感染に対する第一選択候補です。弱い誘導能しか持たず、AmpCに対する加水分解耐性も高いため、治療中の脱抑制が起きても比較的安定して活性を維持します。
+
+2022年版では「MIC 4〜8μg/mLのSDD（susceptible dose dependent）域はESBL共産生の懸念から推奨しない」とされていましたが、2024年版ではこの記述が再検討され、表現が緩和されました。IDSA 2024本体は、SDD域とESBL共産生との明確な関連は示されていないとしたうえで、2g q8h × 3時間延長投与を前提にSDD域も治療候補になりうる、と述べています。つまり機械的な MIC ≤2/≥4 の線引きではありません。実務判断としては、MIC ≤2 なら CFPM が第一選択、SDD域（MIC 4〜8）は高用量延長投与を前提に症例依存で判断、ただし重症例・ESBL共産生疑い・ソースコントロール（感染源制御：膿瘍ドレナージ等）不十分例ではカルバペネムに傾く、と読むのが正確です。
+
+### カルバペネム（メロペネム、イミペネム/シラスタチン）
+
+重症例・ソースコントロール困難例・ESBL共産生確認例の基準治療です。SDD域でも臨床的に不安定な状況ではこちらを選びます。
+
+![IDSA 2024 AmpC治療アルゴリズム](/images/blog/ampc-producing-enterobacterales/ampc-idsa-2024-algorithm.png)
+
+このアルゴリズムを臨床で運用するには、菌種・感染部位・重症度・CFPM MIC値・ESBL共産生の可能性を常に同時に見る癖が要ります。ひとつでも抜けると判断を誤ります。
+
+さらに、個々の抗菌薬がAmpCに対してどう振る舞うかを整理すると、治療選択の直感が身に付きます。AmpCへの誘導能（高・低）と、AmpC存在下での薬剤の安定性（安定・不安定）の2軸で分類した下図が参考になります。
+
+![抗菌薬のAmpC誘導能・安定性マトリクス](/images/blog/ampc-producing-enterobacterales/ampc-antibiotics-matrix.png)
+
+「低誘導 × 安定」の象限（セフェピム・メロペネム・セフォゾプラン）が、AmpCを刺激せず、かつ産生されてもやられない薬剤群。一方、「低誘導 × 不安定」（セフトリアキソン、ピペラシリン・タゾバクタム、セフタジジム等）は、誘導は弱いものの一度脱抑制されると無力化されるため、侵襲性感染では避けるべき群になります。
+
+## セフェピムはなぜ使えるのか：3つのキー論文
+
+なぜCFPMで大丈夫と言えるのか。この問いに答える代表的な3本を、年代順に整理します。いずれもIDSA 2024推奨の背骨になっているエビデンスです。
+
+### Tan 2020: ESCPM菌血症241例のコホート研究
+
+シンガポール単施設の後ろ向きコホートで、ESCPM（*Enterobacter*、*Serratia*、*Citrobacter freundii*、*Providencia*、*Morganella*）菌血症241例を解析した研究です。全体の30日死亡率12.9%のなかで、経験的P/T（aOR [交絡調整後のオッズ比] 0.29, 95%CI 0.07-1.27）と確定治療のCFPM（aOR 0.65, 95%CI 0.12-3.55）は、いずれもカルバペネムと比べて死亡率に有意差がありませんでした。ライン感染や尿路感染といった比較的軽症の感染源で、CFPMがカルバペネム温存に使える余地を示しています。
+
+### Kunz Coyne 2023: 高用量CFPM vs カルバペネム 315例コホート
+
+米国15施設の後ろ向きコホートで、中〜高リスクAmpC産生Enterobacterales（*E. cloacae* / *K. aerogenes* / *C. freundii*）による菌血症315例を比較した研究です。高用量CFPM（2g q8hを基本）169例 vs カルバペネム146例で、30日死亡率の調整後ハザード比は1.45（95%CI 0.79-2.14）と有意差なしという結果でした。CFPM感受性がSDD域（MIC 4〜8μg/mL）の株だけに絞ったサブ解析でもaHR 1.19（95%CI 0.52-1.77）で差は出ませんでした。ただし著者らも述べる通り、SDD株はESBL共産生の比率が上がる傾向があり、単純にCFPM続行を正当化するデータではありません。
+
+### Cheo 2025: 7研究1099例のシステマティックレビュー＆メタ解析
+
+誘導性染色体性AmpC産生Enterobacteralesに対するCFPM vs カルバペネムの系統的レビューです。7つの菌血症研究、計1099例（CFPM 479例、カルバペネム 620例）を統合し、全死亡のlog OR 0.15（95%CI -0.33 to 0.64、p=0.54）で有意差なし。わずかにCFPM群の方が成績良好な傾向すら見えています。再発率もlog OR 0.39（p=0.23）で差はありませんでした。
+
+![AmpC治療3研究の比較](/images/blog/ampc-producing-enterobacterales/ampc-3-studies.png)
+
+3本のデータをまとめると、CFPM（MIC ≤2）はカルバペネム温存の有力候補という結論になります。ただしこれらはRCTではなく観察研究＋メタ解析が中心であり、感染巣（尿路 vs 菌血症 vs 深部感染）・重症度（Pitt bacteremia score：菌血症重症度スコア）・ESBL共産生の有無で結果が揺れる余地は残ります。「全例でCFPMに置き換えられる」ではなく、「条件が揃えばCFPMでカルバペネム温存が可能」というのが正確な読み方です。
+
+## P/Tはなぜ避けるのか：MERINO-2の微生物学的失敗シグナル
+
+一方、P/Tについては様相が異なります。
+
+MERINO-2試験は、AmpC産生Enterobacterales菌血症に対するP/T 4.5g q6h vs meropenem 1g q8hの多施設pilot RCTで、72例が無作為化されました。主要評価項目である治療失敗（30日全死亡・入院中臨床的失敗・微生物学的失敗の複合）は、P/T群29%（11/38）vs meropenem群21%（7/34）で差は統計的有意に達しませんでした（risk difference 8%、95%CI -11% to 28%）。ただし、このパイロット試験は非劣性の境界を厳密に示すパワーを持たない規模です。
+
+注目すべきは微生物学的失敗のシグナルです。P/T群13%（5/38）vs meropenem群0%（0/34）、p=0.03で有意差がありました。死亡数はむしろmeropenem群で多かった（2 vs 0）ものの、菌学的にはP/Tがカルバペネムに追いつけていませんでした。小規模試験ながら、微生物学的エンドポイントが一貫してP/T不利の方向を示した点が重要です。
+
+その後の観察研究もこの方向を補強しています。Luらは免疫不全患者のcefoxitin非感受性Enterobacterales菌血症でP/T・CFPM・カルバペネムを比較し、P/T群で微生物学的失敗が他より多いことを報告しました。IDSA 2024が「侵襲性感染でP/Tを suggest against」と明示する根拠はこの辺りの累積エビデンスにあります。
+
+そして2024年、Maillardらの多施設観察研究でも、低変異率菌種ではAmpC過剰産生による治療失敗が少なく、第3世代セファロスポリンはCFPM/カルバペネムより不利でした。菌種差と薬剤差が、実際の転帰に反映されうることを示すデータとして重要です。
+
+P/TがAmpCに弱い理由はピペラシリンの方にあります。タゾバクタムはAmpCを阻害せず、ピペラシリンはAmpCに加水分解されやすい性質があります。inoculum effect（菌量増加時のMIC上昇）も強く、深部感染や菌量の多い感染では失敗が出やすくなります。
+
+ただし「P/Tは使えない」ではなく、「侵襲性感染の第一選択にしにくい」が正確な表現です。軽症例や、臨床的に明らかに改善した症例でのステップダウン候補としては、個別に検討の余地が残ります。
+
+## 日本の疫学：京都194例の分子疫学
+
+ここまで欧米のデータを中心に整理しましたが、日本の状況はどうでしょうか。京都大学病院の長期観察データが参考になります。
+
+2002〜2018年の17年間に京都大病院で血液培養から検出された *Enterobacter cloacae* complex の非重複株194件を解析した研究です。*E. cloacae* complex は実は複数の近縁種の集合体で、194株は13の既知種と6つの未命名系統に分かれ、最多は *Enterobacter xiangfangensis*（36%）でした。主要な耐性データは以下の通りです。
+
+<div class="not-prose article-stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">7<span class="stat-unit">%</span></div>
+    <div class="stat-label">セフェピム非感受性率（全体）</div>
+    <div class="stat-note">cefotaxime非感受性株に限れば19%</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">84<span class="stat-unit">%</span></div>
+    <div class="stat-label">cefotaxime非感受性株の大半で脱抑制</div>
+    <div class="stat-note">獲得性β-ラクタマーゼ陰性株中</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">15<span class="stat-unit">%</span></div>
+    <div class="stat-label">ESBL・カルバペネマーゼ・pAmpC（plasmid-mediated AmpC）の共産生率</div>
+    <div class="stat-note">高リスククローン（Sequence Type: ST78・ST93）がCFPM耐性と関連</div>
+  </div>
+</div>
+
+欧米の耐性率（CFPM非感受性 10〜20%）と比較して日本は低い水準にあり、この一施設データはCFPMを使う余地を支持する所見と読めます。一方で15%でESBL共産生が見られた点は、CFPM感受性がSDD域にある株を安易にCFPMで続けない慎重さを裏付けます。ただし単施設・血液分離株・17年分のデータである点は留意すべきで、「日本全体でIDSA推奨がそのまま適用できる」と一般化するにはJANIS等の全国データでの追認を待つのが堅いところです。実務判断では、CFPM高MIC域ではESBL確認試験（cefotaxime高MIC＋セファマイシン非感受性＋CFPM高MICの組み合わせで疑う）の併用が望ましいでしょう。
+
+---
+
+AmpCは「一律にカルバペネム」でも「一律に第3世代セファロスポリン」でもありません。菌種・部位・重症度・MIC値・ESBL共産生の可能性——この5軸を毎回判断する面倒な相手です。ただし、その面倒さを引き受けることは、不要なカルバペネム使用を減らすことに直結します。冒頭に戻りましょう。術後 *E. cloacae* 菌血症でCTRXが「S」。そのまま続けるのではなく、CFPMのMICを確認し、臨床像と合わせてCFPM（SDDなら高用量延長投与を含め）かカルバペネムかを選ぶ。これが2026年時点の標準です。
+
+AmpCを「一律にカルバペネム」で片付けた先には、カルバペネム耐性腸内細菌目細菌（CRE）が育つ未来が待っています。面倒な判断を引き受けることは、いま目の前の患者だけでなく、次世代に残せる治療選択肢を守ることでもあります。
+
+---
+
+## 参考文献
+
+1. Tamma PD, Heil EL, Justo JA, Mathers AJ, Satlin MJ, Bonomo RA. Infectious Diseases Society of America 2024 Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections. Clin Infect Dis. 2024;ciae403. [doi:10.1093/cid/ciae403](https://doi.org/10.1093/cid/ciae403)
+
+2. Tamma PD, Aitken SL, Bonomo RA, Mathers AJ, van Duin D, Clancy CJ. Infectious Diseases Society of America Guidance on the Treatment of AmpC β-Lactamase-Producing Enterobacterales, Carbapenem-Resistant Acinetobacter baumannii, and Stenotrophomonas maltophilia Infections. Clin Infect Dis. 2022;74(12):2089-2114. [doi:10.1093/cid/ciab1013](https://doi.org/10.1093/cid/ciab1013)
+
+3. Tamma PD, Doi Y, Bonomo RA, Johnson JK, Simner PJ. A Primer on AmpC β-Lactamases: Necessary Knowledge for an Increasingly Multidrug-resistant World. Clin Infect Dis. 2019;69(8):1446-1455. [doi:10.1093/cid/ciz173](https://doi.org/10.1093/cid/ciz173)
+
+4. Jacoby GA. AmpC β-Lactamases. Clin Microbiol Rev. 2009;22(1):161-182. [doi:10.1128/CMR.00036-08](https://doi.org/10.1128/CMR.00036-08)
+
+5. Chow JW, Fine MJ, Shlaes DM, et al. Enterobacter bacteremia: clinical features and emergence of antibiotic resistance during therapy. Ann Intern Med. 1991;115(8):585-590. [doi:10.7326/0003-4819-115-8-585](https://doi.org/10.7326/0003-4819-115-8-585)
+
+6. Kaye KS, Cosgrove S, Harris A, et al. Risk factors for emergence of resistance to broad-spectrum cephalosporins among Enterobacter spp. Antimicrob Agents Chemother. 2001;45(9):2628-2630. [doi:10.1128/AAC.45.9.2628-2630.2001](https://doi.org/10.1128/AAC.45.9.2628-2630.2001)
+
+7. Choi SH, Lee JE, Park SJ, et al. Emergence of antibiotic resistance during therapy for infections caused by Enterobacteriaceae producing AmpC β-lactamase: implications for antibiotic use. Antimicrob Agents Chemother. 2008;52(3):995-1000. [doi:10.1128/AAC.01083-07](https://doi.org/10.1128/AAC.01083-07)
+
+8. Kohlmann R, Bähr T, Gatermann SG. Species-specific mutation rates for ampC derepression in Enterobacterales with chromosomally encoded inducible AmpC β-lactamase. J Antimicrob Chemother. 2018;73(6):1530-1536. [doi:10.1093/jac/dky084](https://doi.org/10.1093/jac/dky084)
+
+9. Lazarus JE, Wang Y, Waldor MK, Hooper DC. Divergent genetic landscapes drive lower levels of AmpC induction and stable de-repression in Serratia marcescens compared to Enterobacter cloacae. Antimicrob Agents Chemother. 2024;68(1):e0119323. [doi:10.1128/aac.01193-23](https://doi.org/10.1128/aac.01193-23)
+
+10. Tebano G, Zaghi I, Cricca M, Cristini F. Antibiotic Treatment of Infections Caused by AmpC-Producing Enterobacterales. Pharmacy (Basel). 2024;12(5):142. [doi:10.3390/pharmacy12050142](https://doi.org/10.3390/pharmacy12050142)
+
+11. Stewart AG, Paterson DL, Young B, et al. Meropenem Versus Piperacillin-Tazobactam for Definitive Treatment of Bloodstream Infections Caused by AmpC β-Lactamase-Producing Enterobacter spp, Citrobacter freundii, Morganella morganii, Providencia spp, or Serratia marcescens: A Pilot Multicenter Randomized Controlled Trial (MERINO-2). Open Forum Infect Dis. 2021;8(8):ofab387. [doi:10.1093/ofid/ofab387](https://doi.org/10.1093/ofid/ofab387)
+
+12. Tan SH, Ng TM, Chew KL, et al. Outcomes of treating AmpC-producing Enterobacterales bacteraemia with carbapenems vs. non-carbapenems. Int J Antimicrob Agents. 2020;55(2):105860. [doi:10.1016/j.ijantimicag.2019.105860](https://doi.org/10.1016/j.ijantimicag.2019.105860)
+
+13. Kunz Coyne AJ, El Ghali A, Lucas K, et al. High-dose Cefepime vs Carbapenems for Bacteremia Caused by Enterobacterales With Moderate to High Risk of Clinically Significant AmpC β-lactamase Production. Open Forum Infect Dis. 2023;10(3):ofad034. [doi:10.1093/ofid/ofad034](https://doi.org/10.1093/ofid/ofad034)
+
+14. Cheo HM, Ho DYK, Koh LP, et al. Cefepime Versus Carbapenem Therapy for the Treatment of Invasive Infections With Inducible Chromosomal AmpC-Producing Enterobacterales: A Systematic Review and Meta-analysis. Open Forum Infect Dis. 2025;12(7):ofaf413. [doi:10.1093/ofid/ofaf413](https://doi.org/10.1093/ofid/ofaf413)
+
+15. Matsuo A, Matsumura Y, Mori K, et al. Molecular epidemiology and β-lactam resistance mechanisms of Enterobacter cloacae complex isolates obtained from bloodstream infections, Kyoto, Japan. Microbiol Spectr. 2025;13(4):e02485-24. [doi:10.1128/spectrum.02485-24](https://doi.org/10.1128/spectrum.02485-24)
+
+16. Maillard A, Dortet L, Delory T, Lafaurie M, Bleibtreu A; Treatment of AmpC producing Enterobacterales study group. Mutation Rate of AmpC β-Lactamase-Producing Enterobacterales and Treatment in Clinical Practice: A Word of Caution. Clin Infect Dis. 2024;79(1):52-55. [doi:10.1093/cid/ciae160](https://doi.org/10.1093/cid/ciae160)
+
+17. 西村翔. 基礎から臨床につなぐ 薬剤耐性菌のハナシ（連載第3〜5回, AmpC）. J-IDEO（中外医学社）. 2017.
