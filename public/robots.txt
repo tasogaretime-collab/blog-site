@@ -1,3 +1,54 @@
+# tasunaro.com robots.txt
+# 最終更新: 2026-04-23
+
+# ===== Google AdSense 関連（明示的許可） =====
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+# ===== SEOスクレイパー系（ユーザー流入ゼロ・負荷のみ発生・ブロック） =====
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: rogerbot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: MegaIndex.ru
+Disallow: /
+
+User-agent: SeznamBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: Barkrowler
+Disallow: /
+
+User-agent: SerpstatBot
+Disallow: /
+
+# ===== その他すべて（Googlebot・Bingbot・OGPクローラー等を含む・許可） =====
 User-agent: *
 Allow: /
 
