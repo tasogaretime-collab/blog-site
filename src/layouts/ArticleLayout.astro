@@ -213,10 +213,10 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
                 {prevPost ? (
                   <a
                     href={`/blog/${prevPost.slug}`}
-                    class="group flex flex-col gap-2 rounded-lg border border-gray-100 px-5 py-4 transition-all hover:border-karada-blue hover:shadow-sm"
+                    class="group flex flex-col gap-3 rounded-xl bg-gray-50 px-5 py-5 transition-all hover:bg-karada-blue/5 hover:shadow-md"
                   >
-                    <span class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-gray-400 group-hover:text-karada-blue transition-colors" style="letter-spacing: 0.18em;">
-                      <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
+                    <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-karada-blue transition-colors" style="letter-spacing: 0.16em;">
+                      <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
                       前の記事
                     </span>
                     <span class="text-sm font-medium text-gray-800 group-hover:text-karada-blue transition-colors leading-snug line-clamp-2">
@@ -230,11 +230,11 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
                 {nextPost ? (
                   <a
                     href={`/blog/${nextPost.slug}`}
-                    class="group flex flex-col gap-2 rounded-lg border border-gray-100 px-5 py-4 transition-all hover:border-karada-blue hover:shadow-sm md:text-right"
+                    class="group flex flex-col gap-3 rounded-xl bg-gray-50 px-5 py-5 transition-all hover:bg-karada-blue/5 hover:shadow-md md:text-right"
                   >
-                    <span class="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-widest text-gray-400 group-hover:text-karada-blue transition-colors md:justify-end" style="letter-spacing: 0.18em;">
+                    <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-karada-blue transition-colors md:justify-end" style="letter-spacing: 0.16em;">
                       次の記事
-                      <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+                      <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
                     </span>
                     <span class="text-sm font-medium text-gray-800 group-hover:text-karada-blue transition-colors leading-snug line-clamp-2">
                       {nextPost.title}
