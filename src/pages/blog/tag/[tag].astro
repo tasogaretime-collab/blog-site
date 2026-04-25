@@ -20,7 +20,15 @@ export async function getStaticPaths() {
 
 const { tag, posts } = Astro.props;
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
-const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags))].sort();
+
+// Popular tags: 2+ articles, OR the current tag (always include for navigation)
+const tagCount = allPosts.flatMap(p => p.data.tags).reduce<Record<string, number>>((acc, t) => {
+  acc[t] = (acc[t] || 0) + 1;
+  return acc;
+}, {});
+const popularTags = Object.entries(tagCount)
+  .filter(([t, count]) => count >= 2 || t === tag)
+  .sort((a, b) => b[1] - a[1]);
 ---
 
 <BaseLayout
@@ -40,20 +48,23 @@ const allTags = [...new Set(allPosts.flatMap((post) => post.data.tags))].sort();
       <p class="text-gray-500">{posts.length}件の記事</p>
     </div>
 
-    <!-- Tag filter -->
-    <div class="flex flex-wrap gap-2 mb-8 pb-6 border-b border-gray-100">
-      <a href="/blog" class="tag-badge hover:bg-karada-blue hover:text-white transition-colors">すべて</a>
-      {allTags.map((t) => (
-        <a
-          href={`/blog/tag/${t}`}
-          class:list={[
-            'tag-badge transition-colors',
-            t === tag ? 'bg-karada-blue text-white' : 'hover:bg-karada-blue hover:text-white',
-          ]}
-        >
-          #{t}
-        </a>
-      ))}
+    <!-- Tag filter (popular tags only, with article counts) -->
+    <div class="mb-8 pb-6 border-b border-gray-100">
+      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3" style="letter-spacing: 0.18em;">よく読まれているテーマ</p>
+      <div class="flex flex-wrap gap-2">
+        <a href="/blog" class="tag-badge hover:bg-karada-blue hover:text-white transition-colors">すべて ({allPosts.length})</a>
+        {popularTags.map(([t, count]) => (
+          <a
+            href={`/blog/tag/${t}`}
+            class:list={[
+              'tag-badge transition-colors',
+              t === tag ? 'bg-karada-blue text-white' : 'hover:bg-karada-blue hover:text-white',
+            ]}
+          >
+            #{t} <span class="opacity-60">({count})</span>
+          </a>
+        ))}
+      </div>
     </div>
 
     <!-- Articles grid -->
