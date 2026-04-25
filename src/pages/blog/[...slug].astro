@@ -7,14 +7,30 @@ export async function getStaticPaths() {
     if (import.meta.env.DEV) return true;
     return !data.draft;
   });
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
+
+  const sortedPosts = posts.sort(
+    (a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime()
+  );
+
+  return sortedPosts.map((post, index) => {
+    const prevPost = index > 0 ? sortedPosts[index - 1] : null;
+    const nextPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
+    return {
+      params: { slug: post.slug },
+      props: { post, prevPost, nextPost },
+    };
+  });
 }
 
-const post = Astro.props;
+const { post, prevPost, nextPost } = Astro.props;
 const { Content, headings } = await post.render();
+
+const navPrev = prevPost
+  ? { slug: prevPost.slug, title: prevPost.data.title }
+  : undefined;
+const navNext = nextPost
+  ? { slug: nextPost.slug, title: nextPost.data.title }
+  : undefined;
 ---
 
 <ArticleLayout
@@ -27,6 +43,8 @@ const { Content, headings } = await post.render();
   ogImage={post.data.ogImage}
   headings={headings}
   faq={post.data.faq}
+  prevPost={navPrev}
+  nextPost={navNext}
 >
   <Content />
 </ArticleLayout>
