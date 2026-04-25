@@ -7,9 +7,10 @@ interface Props {
   slug: string;
   ogImage?: string;
   featured?: boolean;
+  isNew?: boolean;
 }
 
-const { title, description, pubDate, tags = [], slug, ogImage, featured = false } = Astro.props;
+const { title, description, pubDate, tags = [], slug, ogImage, featured = false, isNew = false } = Astro.props;
 
 const formattedDate = pubDate.toLocaleDateString('ja-JP', {
   year: 'numeric',
@@ -18,20 +19,21 @@ const formattedDate = pubDate.toLocaleDateString('ja-JP', {
 });
 ---
 
-<a href={`/blog/${slug}`} class={`card block p-5 border hover:border-karada-blue transition-all duration-200 group ${featured ? 'border-karada-blue/30 bg-karada-blue-light/30' : 'border-gray-200'}`}>
+<a href={`/blog/${slug}`} class={`card block p-5 border hover:border-karada-blue transition-all duration-200 group relative ${featured ? 'border-karada-blue/30 bg-karada-blue-light/30' : 'border-gray-200'}`}>
   {ogImage && (
-    <div class="-mx-5 -mt-5 mb-4">
+    <div class="-mx-5 -mt-5 mb-4 relative">
       <img src={ogImage} alt="" class="w-full rounded-t-xl object-cover aspect-[1.91/1]" loading="lazy" />
+      {isNew && (
+        <span class="absolute top-3 left-3 inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold text-white bg-red-500 rounded">NEW</span>
+      )}
     </div>
   )}
 
-  {featured && (
-    <div class="text-xs font-bold text-karada-blue mb-2 flex items-center gap-1">
-      <span>★</span> 注目記事
-    </div>
+  {!ogImage && isNew && (
+    <span class="absolute top-3 right-3 inline-flex items-center px-1.5 py-0.5 text-[10px] font-bold text-white bg-red-500 rounded">NEW</span>
   )}
 
-  <div class="flex flex-wrap gap-1.5 mb-2">
+  <div class="flex flex-wrap gap-1.5 mb-2 mt-0">
     {tags.slice(0, 3).map((tag) => (
       <span class="tag-badge text-xs">{tag}</span>
     ))}

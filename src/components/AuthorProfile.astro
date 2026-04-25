@@ -17,17 +17,23 @@ const { compact = false } = Astro.props;
   <div class="bg-karada-blue-light rounded-xl p-6 border border-karada-blue/20">
     <div class="flex items-start gap-4">
       <img src="/images/profile.jpg" alt="Tasunaro" class="w-16 h-16 rounded-full object-cover flex-shrink-0" />
-      <div>
+      <div class="flex-1 min-w-0">
         <div class="font-bold text-gray-900 text-lg mb-0.5">Tasunaro</div>
-        <div class="text-sm text-karada-blue font-medium mb-2">感染症専門医</div>
+        <div class="text-sm text-karada-blue font-medium mb-3">感染症専門医</div>
+        <div class="flex flex-wrap gap-1.5 mb-3">
+          <span class="inline-flex items-center px-2 py-0.5 text-[11px] font-medium text-karada-blue bg-white border border-karada-blue/30 rounded-full">日本感染症学会専門医</span>
+          <span class="inline-flex items-center px-2 py-0.5 text-[11px] font-medium text-karada-blue bg-white border border-karada-blue/30 rounded-full">抗菌化学療法指導医</span>
+          <span class="inline-flex items-center px-2 py-0.5 text-[11px] font-medium text-karada-blue bg-white border border-karada-blue/30 rounded-full">国際渡航医学会認定医</span>
+          <span class="inline-flex items-center px-2 py-0.5 text-[11px] font-medium text-karada-blue bg-white border border-karada-blue/30 rounded-full">DTM&amp;H</span>
+        </div>
         <p class="text-sm text-gray-600 leading-relaxed">
           医師になって10年以上、感染症の診療を続けています。
-          医学書や論文の執筆経験を活かして、日々の診療で役立つ情報をお届けします。
+          査読論文や医学書の執筆経験を活かし、最新のエビデンスに基づいた情報をお届けします。
         </p>
         <div class="flex items-center gap-4 mt-3">
           <a
             href="/about"
-            class="text-xs text-karada-blue font-medium hover:underline transition-colors"
+            class="text-xs text-karada-blue font-bold hover:underline transition-colors"
           >
             詳しいプロフィール →
           </a>

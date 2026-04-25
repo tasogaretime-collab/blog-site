@@ -6,6 +6,11 @@ import { getCollection } from 'astro:content';
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 const latestPosts = sortedPosts.slice(0, 6);
+
+// "NEW" judgment: published within last 7 days
+const now = Date.now();
+const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+const isNew = (pubDate: Date) => now - pubDate.valueOf() < SEVEN_DAYS_MS;
 ---
 
 <BaseLayout title="感染症専門医の医療情報ブログ | 最新エビデンスをわかりやすく解説">
@@ -45,6 +50,7 @@ const latestPosts = sortedPosts.slice(0, 6);
             ogImage={post.data.ogImage}
             slug={post.slug}
             featured={i === 0}
+            isNew={isNew(post.data.pubDate)}
           />
         ))}
       </div>

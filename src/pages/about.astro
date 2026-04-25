@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const articleCount = allPosts.length;
 ---
 
 <BaseLayout
@@ -13,10 +17,30 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <img src="/images/profile.jpg" alt="Tasunaro" class="w-24 h-24 rounded-full object-cover mx-auto mb-4" />
       <h1 class="text-3xl font-bold text-gray-900 mb-1">Tasunaro</h1>
       <p class="text-karada-blue font-medium mb-4">感染症専門医</p>
-      <p class="text-gray-600 text-sm leading-relaxed max-w-lg mx-auto">
+      <p class="text-gray-600 text-sm leading-relaxed max-w-lg mx-auto mb-6">
         医師になって10年以上、感染症の診療を続けています。<br />
-        医学書や論文の執筆経験を活かして、日々の診療で役立つ情報をお届けします。
+        査読論文や医学書の執筆経験を活かし、最新のエビデンスに基づいた情報をお届けします。
       </p>
+
+      <!-- 資格バッジ -->
+      <div class="flex flex-wrap justify-center gap-1.5 max-w-2xl mx-auto mb-6">
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">日本感染症学会専門医</span>
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">日本内科学会認定内科医</span>
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">抗菌化学療法指導医</span>
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">日本エイズ学会認定医</span>
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">国際渡航医学会認定医</span>
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">日本渡航医学会認定医療職</span>
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">熱帯医学・衛生学ディプロマ（DTM&amp;H）</span>
+      </div>
+
+      <!-- ブログ統計 -->
+      <div class="inline-flex items-center gap-4 px-5 py-2.5 bg-gray-50 rounded-full text-xs text-gray-600">
+        <span><span class="font-bold text-karada-blue">{articleCount}</span>本の記事を公開</span>
+        <span class="text-gray-300">|</span>
+        <span>すべて<span class="font-bold">出典付き</span></span>
+        <span class="text-gray-300">|</span>
+        <span>定期的に<span class="font-bold">更新</span></span>
+      </div>
     </div>
 
     <div class="prose max-w-none">
@@ -32,46 +56,28 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <li>自身で判断するための材料になる解説</li>
       </ul>
 
-      <!-- 資格 -->
-      <h2>専門資格</h2>
-
-      <h3>感染症・内科</h3>
-      <ul>
-        <li>日本感染症学会専門医</li>
-        <li>日本内科学会認定内科医</li>
-        <li>日本化学療法学会抗菌化学療法指導医</li>
-        <li>日本エイズ学会認定医</li>
-      </ul>
-
-      <h3>渡航医学・熱帯医学</h3>
-      <ul>
-        <li>国際渡航医学会認定医（Certificate in Travel Health™）</li>
-        <li>熱帯医学・衛生学ディプロマ（DTM&amp;H）</li>
-        <li>日本渡航医学会認定医療職</li>
-      </ul>
-
       <!-- 執筆・学術 -->
       <h2>執筆・学術活動</h2>
       <ul>
-        <li>医学書・専門誌への分担執筆 <strong>10冊以上</strong>（抗菌薬・感染症領域）</li>
-        <li>国内外の学術誌に原著論文・症例報告を発表（<strong>英文論文含む</strong>）</li>
+        <li>医学書・専門誌への分担執筆 10冊以上（抗菌薬・感染症領域）</li>
+        <li>国内外の学術誌に原著論文・症例報告を発表（英文論文含む）</li>
         <li>市民向けの医療講演も行っています</li>
       </ul>
 
       <!-- 記事の品質管理 -->
       <h2>記事の品質管理</h2>
       <ul>
-        <li>主に<strong>査読済みの論文・診療ガイドライン・公的機関の情報</strong>をもとに執筆しています</li>
-        <li>記事内に<strong>出典を載せている</strong>ので、元の情報もご自身で確認できます</li>
-        <li>ガイドラインの改訂や新しいエビデンスが出たときは、<strong>記事を更新</strong>します</li>
-        <li>感染症を専門とする<strong>現役の医師</strong>が、医学的な正確性をチェックしています</li>
+        <li>主に査読済みの論文・診療ガイドライン・公的機関の情報をもとに執筆しています</li>
+        <li>記事内に出典を載せているので、元の情報もご自身で確認できます</li>
+        <li>ガイドラインの改訂や新しいエビデンスが出たときは、記事を更新します</li>
+        <li>感染症を専門とする現役の医師が、医学的な正確性をチェックしています</li>
       </ul>
 
       <!-- SNS・お問い合わせ -->
       <h2>SNS・お問い合わせ</h2>
       <p>
         <a href="https://x.com/xRLtqMcxxZ75089" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a>で記事の図解や感染症の最新情報を発信しています。
-        記事の内容へのご意見やご質問は、<a href="/contact">お問い合わせページ</a>からご連絡ください。
+        記事へのご意見やご質問は X の DM までお気軽にお寄せください。
       </p>
 
       <!-- 免責事項 -->
