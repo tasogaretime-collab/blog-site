@@ -19,6 +19,13 @@ interface NavPost {
   title: string;
 }
 
+interface SeriesPost {
+  slug: string;
+  title: string;
+  description: string;
+  isPillar: boolean;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -31,9 +38,12 @@ interface Props {
   faq?: FaqItem[];
   prevPost?: NavPost;
   nextPost?: NavPost;
+  seriesLabel?: string;
+  isPillar?: boolean;
+  seriesPosts?: SeriesPost[];
 }
 
-const { title, description, pubDate, updatedDate, tags = [], slides, ogImage, headings = [], faq, prevPost, nextPost } = Astro.props;
+const { title, description, pubDate, updatedDate, tags = [], slides, ogImage, headings = [], faq, prevPost, nextPost, seriesLabel, isPillar, seriesPosts = [] } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // Filter h2 headings for TOC
@@ -203,6 +213,43 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
                   </details>
                 ))}
               </div>
+            </section>
+          )}
+
+          {/* Same-series posts (auto). Position unified across all articles: after FAQ, before prev/next nav. */}
+          {seriesPosts.length > 0 && seriesLabel && (
+            <section class="mt-16 pt-8 border-t border-gray-100" aria-label={`${seriesLabel}シリーズの他の記事`}>
+              <h2 class="text-2xl font-bold text-karada-blue mb-6" style="font-family: 'Noto Serif JP', serif;">
+                {seriesLabel}シリーズで読む
+              </h2>
+              <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                {isPillar
+                  ? `本記事は${seriesLabel}シリーズの総論編です。各論や周辺テーマを以下の記事で扱っています。気になるところから読み進めてみてください。`
+                  : '同じシリーズの他の記事です。気になるところから読み進めてみてください。'}
+              </p>
+              <ul class="space-y-5 list-none m-0 p-0">
+                {seriesPosts.map((p) => (
+                  <li class="m-0 p-0 flex gap-3">
+                    <span class="shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-karada-blue/60" aria-hidden="true"></span>
+                    <div class="flex-1 min-w-0">
+                      <a
+                        href={`/blog/${p.slug}`}
+                        class="text-base font-medium text-karada-blue hover:underline leading-snug inline-flex items-start gap-2"
+                      >
+                        {p.isPillar && (
+                          <span class="shrink-0 mt-0.5 inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wider text-karada-blue bg-karada-blue/10" style="letter-spacing: 0.08em;">
+                            PILLAR
+                          </span>
+                        )}
+                        <span>{p.title}</span>
+                      </a>
+                      <p class="text-sm text-gray-500 mt-1 mb-0 leading-relaxed line-clamp-2">
+                        {p.description}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </section>
           )}
 

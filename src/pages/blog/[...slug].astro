@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { SERIES_LABELS } from '../../content/config';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
@@ -12,17 +13,46 @@ export async function getStaticPaths() {
     (a, b) => new Date(a.data.pubDate).getTime() - new Date(b.data.pubDate).getTime()
   );
 
+  const postBySlug = new Map(sortedPosts.map(p => [p.slug, p]));
+
   return sortedPosts.map((post, index) => {
     const prevPost = index > 0 ? sortedPosts[index - 1] : null;
     const nextPost = index < sortedPosts.length - 1 ? sortedPosts[index + 1] : null;
+
+    // Same-series posts (excluding self), pillar first, then most recent
+    const sameSeries = post.data.series
+      ? sortedPosts
+          .filter(p => p.data.series === post.data.series && p.slug !== post.slug)
+          .sort((a, b) => {
+            if (a.data.isPillar !== b.data.isPillar) return a.data.isPillar ? -1 : 1;
+            return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+          })
+      : [];
+
+    // Related posts from other series (pillar pages can list cross-series related articles)
+    const relatedSeen = new Set(sameSeries.map(p => p.slug));
+    relatedSeen.add(post.slug);
+    const relatedPosts = (post.data.relatedSlugs ?? [])
+      .map(slug => postBySlug.get(slug))
+      .filter(p => p && !relatedSeen.has(p.slug));
+
+    const seriesPosts = [...sameSeries, ...relatedPosts]
+      .slice(0, 5)
+      .map(p => ({
+        slug: p.slug,
+        title: p.data.title,
+        description: p.data.description,
+        isPillar: p.data.isPillar,
+      }));
+
     return {
       params: { slug: post.slug },
-      props: { post, prevPost, nextPost },
+      props: { post, prevPost, nextPost, seriesPosts },
     };
   });
 }
 
-const { post, prevPost, nextPost } = Astro.props;
+const { post, prevPost, nextPost, seriesPosts } = Astro.props;
 const { Content, headings } = await post.render();
 
 const navPrev = prevPost
@@ -31,6 +61,8 @@ const navPrev = prevPost
 const navNext = nextPost
   ? { slug: nextPost.slug, title: nextPost.data.title }
   : undefined;
+
+const seriesLabel = post.data.series ? SERIES_LABELS[post.data.series] : undefined;
 ---
 
 <ArticleLayout
@@ -45,6 +77,9 @@ const navNext = nextPost
   faq={post.data.faq}
   prevPost={navPrev}
   nextPost={navNext}
+  seriesLabel={seriesLabel}
+  isPillar={post.data.isPillar}
+  seriesPosts={seriesPosts}
 >
   <Content />
 </ArticleLayout>
