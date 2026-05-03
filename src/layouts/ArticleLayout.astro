@@ -59,6 +59,52 @@ const breadcrumbJsonLd = {
   ],
 };
 
+const authorPerson = {
+  "@type": "Person",
+  "name": "Tasunaro",
+  "jobTitle": "感染症専門医",
+  "url": new URL("/about", Astro.site).href,
+  "image": new URL("/images/profile.jpg", Astro.site).href,
+  "sameAs": ["https://x.com/xRLtqMcxxZ75089"],
+  "knowsAbout": [
+    "感染症",
+    "ワクチン",
+    "抗菌薬",
+    "渡航医学",
+    "薬剤耐性",
+    "Infectious Diseases",
+    "Vaccines",
+    "Antimicrobial Stewardship",
+    "Travel Medicine"
+  ],
+  "hasCredential": [
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "professional certification", "name": "日本感染症学会専門医" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "professional certification", "name": "日本内科学会認定内科医" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "professional certification", "name": "抗菌化学療法指導医" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "professional certification", "name": "日本エイズ学会認定医" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "professional certification", "name": "国際渡航医学会認定医（CTH）" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "professional certification", "name": "日本渡航医学会認定医療職" },
+    { "@type": "EducationalOccupationalCredential", "credentialCategory": "diploma", "name": "熱帯医学・衛生学ディプロマ（DTM&H）" }
+  ]
+};
+
+const publisherOrg = {
+  "@type": "Organization",
+  "name": "Tasunaro Health Information",
+  "url": Astro.site?.href,
+  "logo": {
+    "@type": "ImageObject",
+    "url": new URL("/images/profile.jpg", Astro.site).href
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "email": "contact@tasunaro.com",
+    "availableLanguage": ["Japanese", "ja"]
+  },
+  "sameAs": ["https://x.com/xRLtqMcxxZ75089"]
+};
+
 const articleJsonLd = {
   "@context": "https://schema.org",
   "@type": "MedicalWebPage",
@@ -66,18 +112,14 @@ const articleJsonLd = {
   "description": description,
   "datePublished": pubDate.toISOString(),
   ...(updatedDate && { "dateModified": updatedDate.toISOString() }),
-  "author": {
-    "@type": "Person",
-    "name": "Tasunaro",
-    "jobTitle": "感染症専門医",
-    "url": new URL("/about", Astro.site).href,
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Tasunaro",
-  },
+  "author": authorPerson,
+  "reviewedBy": authorPerson,
+  "publisher": publisherOrg,
   "mainEntityOfPage": canonicalURL.href,
+  "inLanguage": "ja",
+  "isAccessibleForFree": true,
   ...(tags.length > 0 && { "keywords": tags.join(", ") }),
+  ...(ogImage && { "image": new URL(ogImage, Astro.site).href }),
 };
 
 const stripTags = (s: string) => s.replace(/<[^>]*>/g, '');

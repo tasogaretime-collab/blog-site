@@ -8,7 +8,7 @@ const articleCount = allPosts.length;
 
 <BaseLayout
   title="プロフィール | Tasunaro ─ 感染症専門医の医療情報ブログ"
-  description="感染症専門医Tasunaroのプロフィール。資格・経歴・執筆実績・ブログのコンセプトを紹介します。"
+  description="感染症専門医Tasunaroのプロフィール。資格・経歴・執筆実績・運営ポリシー・お問い合わせ先を紹介します。"
 >
   <div class="max-w-3xl mx-auto px-4 py-12">
 
@@ -28,7 +28,7 @@ const articleCount = allPosts.length;
         <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">日本内科学会認定内科医</span>
         <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">抗菌化学療法指導医</span>
         <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">日本エイズ学会認定医</span>
-        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">国際渡航医学会認定医</span>
+        <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">国際渡航医学会認定医（CTH）</span>
         <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">日本渡航医学会認定医療職</span>
         <span class="inline-flex items-center px-2.5 py-1 text-xs font-medium text-karada-blue bg-karada-blue/5 border border-karada-blue/30 rounded-full">熱帯医学・衛生学ディプロマ（DTM&amp;H）</span>
       </div>
@@ -37,10 +37,19 @@ const articleCount = allPosts.length;
       <div class="inline-flex items-center gap-4 px-5 py-2.5 bg-gray-50 rounded-full text-xs text-gray-600">
         <span><span class="font-bold text-karada-blue">{articleCount}</span>本の記事を公開</span>
         <span class="text-gray-300">|</span>
-        <span>すべて<span class="font-bold">出典付き</span></span>
+        <span>すべて出典付き</span>
         <span class="text-gray-300">|</span>
-        <span>定期的に<span class="font-bold">更新</span></span>
+        <span>定期的に更新</span>
       </div>
+    </div>
+
+    <!-- 冒頭サマリー -->
+    <div class="mb-12 p-6 bg-karada-blue-light/40 border-l-4 border-karada-blue rounded-r-lg">
+      <p class="text-sm text-gray-700 leading-relaxed m-0">
+        このブログは、感染症診療に10年以上携わってきた現役の感染症専門医が、
+        査読論文・診療ガイドライン・公的機関の発表をもとに、
+        外来でよく聞かれる疑問や誤解されやすいポイントを整理して解説しています。
+      </p>
     </div>
 
     <div class="prose max-w-none">
@@ -56,29 +65,77 @@ const articleCount = allPosts.length;
         <li>自身で判断するための材料になる解説</li>
       </ul>
 
+      <!-- 専門領域 -->
+      <h2>専門領域</h2>
+      <ul>
+        <li>感染症診療（原因不明の発熱・各種感染症の精査・抗菌薬適正使用）</li>
+        <li>ワクチン（成人ワクチン全般・トラベルワクチン・小児ワクチン）</li>
+        <li>渡航医学（海外渡航前カウンセリング・帰国後発熱・熱帯感染症）</li>
+        <li>薬剤耐性（AMR）対策（ESBL産生菌・AmpC産生菌・カルバペネム耐性菌、院内感染対策）</li>
+      </ul>
+
       <!-- 執筆・学術 -->
       <h2>執筆・学術活動</h2>
       <ul>
         <li>医学書・専門誌への分担執筆 10冊以上（抗菌薬・感染症領域）</li>
         <li>国内外の学術誌に原著論文・症例報告を発表（英文論文含む）</li>
-        <li>市民向けの医療講演も行っています</li>
+        <li>医療従事者向け勉強会・市民向けの医療講演も行っています</li>
       </ul>
 
-      <!-- 記事の品質管理 -->
-      <h2>記事の品質管理</h2>
-      <ul>
-        <li>主に査読済みの論文・診療ガイドライン・公的機関の情報をもとに執筆しています</li>
-        <li>記事内に出典を載せているので、元の情報もご自身で確認できます</li>
-        <li>ガイドラインの改訂や新しいエビデンスが出たときは、記事を更新します</li>
-        <li>感染症を専門とする現役の医師が、医学的な正確性をチェックしています</li>
-      </ul>
+      <!-- 編集方針・記事の品質管理 -->
+      <h2>編集方針・記事の品質管理</h2>
+      <p>
+        本サイトの記事は、以下の方針に従って執筆・更新しています。
+      </p>
+      <dl class="not-prose mt-5 space-y-5">
+        <div>
+          <dt class="text-sm font-semibold text-karada-blue mb-1">一次情報主義</dt>
+          <dd class="text-sm text-gray-600 leading-relaxed ml-0">主に査読済みの原著論文・診療ガイドライン・公的機関（厚生労働省・JIHS・WHO・CDC・各学会）の発表をもとに執筆します。</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-karada-blue mb-1">出典の明示</dt>
+          <dd class="text-sm text-gray-600 leading-relaxed ml-0">記事末尾に参考文献リストを掲載し、元の情報をご自身で確認できるようにしています。</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-karada-blue mb-1">定期更新</dt>
+          <dd class="text-sm text-gray-600 leading-relaxed ml-0">ガイドライン改訂・新しいエビデンスの登場に応じて該当記事を更新し、記事冒頭のメタ情報に更新日を明記します。</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-karada-blue mb-1">専門医による執筆と監修</dt>
+          <dd class="text-sm text-gray-600 leading-relaxed ml-0">感染症を専門とする現役の医師（Tasunaro 自身）が、医学的な正確性をチェックしています。</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold text-karada-blue mb-1">個別診療には代えられない</dt>
+          <dd class="text-sm text-gray-600 leading-relaxed ml-0">本サイトは情報提供を目的としており、個別の診断・治療の代替にはなりません。</dd>
+        </div>
+      </dl>
+
+      <!-- 運営者情報 -->
+      <h2>運営者情報</h2>
+      <table class="w-full text-sm">
+        <tbody>
+          <tr><th class="text-left py-2 pr-6 align-top whitespace-nowrap text-gray-600 font-medium">運営者</th><td class="py-2">Tasunaro（感染症専門医）</td></tr>
+          <tr><th class="text-left py-2 pr-6 align-top whitespace-nowrap text-gray-600 font-medium">サイト名</th><td class="py-2">Tasunaro ─ 感染症専門医の医療情報ブログ</td></tr>
+          <tr><th class="text-left py-2 pr-6 align-top whitespace-nowrap text-gray-600 font-medium">運営目的</th><td class="py-2">医療情報の提供・啓発、ならびに広告・アフィリエイトによる運営費の確保</td></tr>
+          <tr><th class="text-left py-2 pr-6 align-top whitespace-nowrap text-gray-600 font-medium">関連ポリシー</th><td class="py-2"><a href="/privacy">プライバシーポリシー</a> ／ <a href="/disclaimer">免責事項</a></td></tr>
+        </tbody>
+      </table>
+
+      <!-- なぜペンネームか -->
+      <h2>ペンネームでの発信について</h2>
+      <p>
+        本サイトは「Tasunaro」というペンネームで運営しています。これは個人的な事情によるものです。
+        所属医療機関とは独立した私個人の発信であり、勤務先の見解を代表するものではありません。
+        記事内容についての責任はすべて運営者である私個人にあります。
+        ご質問・ご意見は <a href="mailto:contact@tasunaro.com">contact@tasunaro.com</a> までお寄せください。
+      </p>
 
       <!-- SNS・お問い合わせ -->
       <h2>SNS・お問い合わせ</h2>
-      <p>
-        <a href="https://x.com/xRLtqMcxxZ75089" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a>で記事の図解や感染症の最新情報を発信しています。
-        記事へのご意見やご質問は X の DM までお気軽にお寄せください。
-      </p>
+      <ul>
+        <li>メール（推奨）─ <a href="mailto:contact@tasunaro.com">contact@tasunaro.com</a> ─ 取材・執筆依頼など正式なご連絡はこちら</li>
+        <li>X（旧Twitter）─ <a href="https://x.com/xRLtqMcxxZ75089" target="_blank" rel="noopener noreferrer">@Tasunaro</a> ─ 記事の図解・最新情報を発信。気軽な質問・感想・トピックリクエストはDMでも受け付けています</li>
+      </ul>
 
       <!-- 免責事項 -->
       <h2>免責事項</h2>

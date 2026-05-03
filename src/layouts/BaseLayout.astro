@@ -55,18 +55,48 @@ const topTags = Object.entries(tagCount)
     <meta name="twitter:site" content="@Tasunaro" />
     <meta name="twitter:image" content={resolvedOgImage} />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data (JSON-LD): WebSite + Organization -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "Tasunaro ─ 感染症専門医の医療情報ブログ",
+      "alternateName": "Tasunaro",
       "url": Astro.site?.href,
+      "inLanguage": "ja",
+      "description": "感染症専門医が最新のエビデンスに基づいて医療・健康情報をわかりやすく解説します。",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Tasunaro Health Information",
+        "url": Astro.site?.href,
+        "logo": {
+          "@type": "ImageObject",
+          "url": new URL("/images/profile.jpg", Astro.site).href
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer support",
+          "email": "contact@tasunaro.com",
+          "availableLanguage": ["Japanese", "ja"]
+        },
+        "sameAs": ["https://x.com/xRLtqMcxxZ75089"]
+      },
       "author": {
         "@type": "Person",
         "name": "Tasunaro",
         "jobTitle": "感染症専門医",
         "url": new URL("/about", Astro.site).href,
+        "image": new URL("/images/profile.jpg", Astro.site).href,
+        "sameAs": ["https://x.com/xRLtqMcxxZ75089"],
+        "knowsAbout": ["感染症", "ワクチン", "抗菌薬", "渡航医学", "薬剤耐性"]
       },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": new URL("/blog?q={search_term_string}", Astro.site).href
+        },
+        "query-input": "required name=search_term_string"
+      }
     })} />
 
     <!-- Google AdSense -->
@@ -96,9 +126,36 @@ const topTags = Object.entries(tagCount)
         </a>
         <nav class="flex items-center gap-1">
           <a href="/blog" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">記事</a>
+          {topTags.length > 0 && (
+            <details class="relative group" data-nav-categories>
+              <summary class="list-none px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors cursor-pointer flex items-center gap-1 select-none">
+                カテゴリ
+                <svg class="w-3.5 h-3.5 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              </summary>
+              <div class="absolute right-0 mt-1 min-w-[200px] bg-white border border-gray-100 rounded-lg shadow-lg py-2 z-10">
+                {topTags.map(([tag, count]) => (
+                  <a href={`/blog/tag/${tag}`} class="block px-4 py-2 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light transition-colors">
+                    #{tag} <span class="text-xs text-gray-400">({count})</span>
+                  </a>
+                ))}
+                <div class="border-t border-gray-100 mt-1 pt-1">
+                  <a href="/blog" class="block px-4 py-2 text-sm text-karada-blue font-medium hover:bg-karada-blue-light transition-colors">すべての記事を見る →</a>
+                </div>
+              </div>
+            </details>
+          )}
           <a href="/about" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">プロフィール</a>
           <a href="/contact" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">お問い合わせ</a>
         </nav>
+        <script is:inline>
+          // Close <details> dropdown when clicking outside
+          document.addEventListener('click', (e) => {
+            const detailsList = document.querySelectorAll('details[data-nav-categories]');
+            detailsList.forEach((d) => {
+              if (!d.contains(e.target)) d.removeAttribute('open');
+            });
+          });
+        </script>
       </div>
     </header>
 

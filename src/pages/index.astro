@@ -11,6 +11,16 @@ const latestPosts = sortedPosts.slice(0, 6);
 const now = Date.now();
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 const isNew = (pubDate: Date) => now - pubDate.valueOf() < SEVEN_DAYS_MS;
+
+// Top categories (tags with 2+ articles, sorted by count desc, top 6)
+const tagCount = allPosts.flatMap(p => p.data.tags).reduce<Record<string, number>>((acc, tag) => {
+  acc[tag] = (acc[tag] || 0) + 1;
+  return acc;
+}, {});
+const topCategories = Object.entries(tagCount)
+  .filter(([, count]) => count >= 2)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 6);
 ---
 
 <BaseLayout title="感染症専門医の医療情報ブログ | 最新エビデンスをわかりやすく解説">
@@ -60,6 +70,32 @@ const isNew = (pubDate: Date) => now - pubDate.valueOf() < SEVEN_DAYS_MS;
       </div>
     )}
   </section>
+
+  <!-- Categories -->
+  {topCategories.length > 0 && (
+    <section class="max-w-5xl mx-auto px-4 pb-14">
+      <div class="mb-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-1">カテゴリで探す</h2>
+        <p class="text-sm text-gray-500">関心のあるテーマから記事を見つけられます</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        {topCategories.map(([tag, count]) => (
+          <a
+            href={`/blog/tag/${tag}`}
+            class="group flex items-center justify-between px-4 py-3 bg-white border border-gray-100 hover:border-karada-blue/40 rounded-lg transition-colors"
+          >
+            <span class="text-sm font-medium text-gray-800 group-hover:text-karada-blue transition-colors">
+              <span class="text-karada-blue">#</span>{tag}
+            </span>
+            <span class="text-xs text-gray-400">{count}本</span>
+          </a>
+        ))}
+      </div>
+      <div class="mt-4 text-right">
+        <a href="/blog" class="text-karada-blue text-sm font-medium hover:underline">すべての記事を見る →</a>
+      </div>
+    </section>
+  )}
 
   <!-- About the author -->
   <section class="bg-gray-50 py-12 px-4">

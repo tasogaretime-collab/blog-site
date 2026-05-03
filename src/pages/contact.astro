@@ -11,33 +11,71 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <h1 class="text-3xl font-bold text-gray-900 mb-4">お問い合わせ</h1>
     <p class="text-gray-600 leading-relaxed mb-10">
       記事の内容に関するご質問・ご意見、取材・執筆のご依頼など、お気軽にご連絡ください。
+      内容に応じて以下の窓口をご利用いただけます。
     </p>
 
-    <div class="space-y-8">
+    <div class="space-y-6">
 
-      <!-- X（旧Twitter）DM -->
-      <div class="bg-white border border-gray-200 rounded-lg p-6">
-        <h2 class="text-lg font-bold text-gray-900 mb-2">X（旧Twitter）のDM</h2>
+      <!-- メール（推奨） -->
+      <div class="bg-white border border-karada-blue/20 rounded-lg p-6">
+        <div class="flex items-start gap-3 mb-3">
+          <svg class="w-5 h-5 text-karada-blue mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          <div>
+            <h2 class="text-lg font-bold text-gray-900">メールでのお問い合わせ</h2>
+            <p class="text-xs text-karada-blue font-medium mt-0.5">取材・執筆依頼など正式な連絡はこちら</p>
+          </div>
+        </div>
         <p class="text-gray-600 text-sm leading-relaxed mb-4">
-          記事へのご質問・ご感想、取り上げてほしい感染症トピックのリクエストなど、お気軽にDMをお送りください。
+          記事内容に関するご質問・ご意見、取材・執筆依頼、その他お問い合わせはメールでお送りください。
+          通常2〜5営業日以内にお返事いたします。
         </p>
         <a
-          href="https://x.com/xRLtqMcxxZ75089"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 bg-gray-900 text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-gray-700 transition-colors"
+          href="mailto:contact@tasunaro.com"
+          class="inline-flex items-center gap-2 bg-karada-blue text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-karada-blue/90 transition-colors"
         >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          @Tasunaro を開く
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          contact@tasunaro.com
         </a>
+      </div>
+
+      <!-- X（旧Twitter）DM ─ 控えめに -->
+      <div class="bg-gray-50 border border-gray-100 rounded-lg p-5">
+        <div class="flex items-start gap-3 mb-2">
+          <svg class="w-4 h-4 text-gray-500 mt-1 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          <div>
+            <h2 class="text-base font-semibold text-gray-700">X（旧Twitter）のDM</h2>
+            <p class="text-xs text-gray-400 mt-0.5">気軽な質問・感想・トピックリクエスト向け</p>
+          </div>
+        </div>
+        <p class="text-gray-500 text-sm leading-relaxed mb-3 pl-7">
+          記事の感想、取り上げてほしい感染症トピックのリクエストなど、軽めのご連絡はDMでもどうぞ。
+        </p>
+        <div class="pl-7">
+          <a
+            href="https://x.com/xRLtqMcxxZ75089"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-800 transition-colors"
+          >
+            <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            @Tasunaro を開く →
+          </a>
+        </div>
       </div>
 
     </div>
 
     <!-- 注意事項 -->
-    <div class="mt-10 text-xs text-gray-400 leading-relaxed">
+    <div class="mt-10 text-xs text-gray-400 leading-relaxed space-y-1">
       <p>※ 個別の診断・治療に関するご相談にはお答えできません。気になる症状がある場合は、かかりつけ医にご相談ください。</p>
       <p>※ お返事までにお時間をいただく場合がございます。あらかじめご了承ください。</p>
+      <p>※ 内容によっては返信を差し控えさせていただくことがあります。</p>
     </div>
 
   </div>
