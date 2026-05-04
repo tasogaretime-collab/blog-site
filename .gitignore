@@ -21,3 +21,11 @@ yarn-error.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# editorial materials (papers PDFs, drafts, work-in-progress assets)
+sources/
+generate-og.py
+
+# Gemini generation failures and OGP backups
+**/*.gemini-failed.png
+**/og-image_backup_*.png
