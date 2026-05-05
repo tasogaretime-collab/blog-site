@@ -90,7 +90,10 @@
   }
 
   .prose td:first-child {
-    white-space: nowrap;
+    /* nowrap removed 2026-05-05 — long Japanese labels in 1st column were
+       compressing other columns. Use word-break for natural Japanese wrapping. */
+    word-break: keep-all;
+    overflow-wrap: anywhere;
   }
 
   .prose tr:nth-child(even) td {
