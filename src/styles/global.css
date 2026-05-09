@@ -25,6 +25,10 @@
   }
 
   /* prose styles for article content */
+  .prose {
+    counter-reset: action-counter;
+  }
+
   .prose h2 {
     font-family: 'Noto Serif JP', serif;
     font-weight: 700;
@@ -381,4 +385,57 @@
   font-size: 0.75rem;
   color: #6b7280;
   margin-top: 0.25rem;
+}
+
+/* アクションリスト */
+@counter-style action-circled {
+  system: fixed 1;
+  symbols: "①" "②" "③" "④" "⑤" "⑥" "⑦" "⑧" "⑨" "⑩";
+  suffix: " ";
+}
+
+.article-action-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.article-action-item {
+  position: relative;
+  padding-left: 1.6rem;
+  counter-increment: action-counter;
+}
+
+.article-action-item::before {
+  content: counter(action-counter, action-circled);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.action-title {
+  margin-bottom: 0.4rem;
+}
+
+.action-title strong {
+  background: linear-gradient(135deg, var(--color-brand-blue), var(--color-brand-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.action-body {
+  color: var(--color-text-body);
+  font-size: 1rem;
+  line-height: 1.75;
 }
