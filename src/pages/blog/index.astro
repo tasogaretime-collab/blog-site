@@ -45,9 +45,9 @@ const otherPosts = sortedPosts.slice(1);
       <div class="mb-8 pb-6 border-b border-gray-100">
         <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3" style="letter-spacing: 0.18em;">よく読まれているテーマ</p>
         <div class="flex flex-wrap gap-2">
-          <a href="/blog" class="tag-badge bg-karada-blue text-white">すべて ({sortedPosts.length})</a>
+          <a href="/blog/" class="tag-badge bg-karada-blue text-white">すべて ({sortedPosts.length})</a>
           {popularTags.map(([tag, count]) => (
-            <a href={`/blog/tag/${tag}`} class="tag-badge hover:bg-karada-blue hover:text-white transition-colors">
+            <a href={`/blog/tag/${tag}/`} class="tag-badge hover:bg-karada-blue hover:text-white transition-colors">
               #{tag} <span class="opacity-60">({count})</span>
             </a>
           ))}

@@ -32,7 +32,7 @@ const topCategories = Object.entries(tagCount)
         感染症・ワクチン・抗菌薬・渡航医学などについて、<br />
         感染症専門医が最新の論文やガイドラインをもとに解説します。
       </p>
-      <a href="/blog" class="btn-primary justify-center">
+      <a href="/blog/" class="btn-primary justify-center">
         記事一覧
       </a>
     </div>
@@ -44,7 +44,7 @@ const topCategories = Object.entries(tagCount)
       <div>
         <h2 class="text-2xl font-bold text-gray-900">最新記事</h2>
       </div>
-      <a href="/blog" class="text-karada-blue text-sm font-medium hover:underline">
+      <a href="/blog/" class="text-karada-blue text-sm font-medium hover:underline">
         すべて見る →
       </a>
     </div>
@@ -81,7 +81,7 @@ const topCategories = Object.entries(tagCount)
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
         {topCategories.map(([tag, count]) => (
           <a
-            href={`/blog/tag/${tag}`}
+            href={`/blog/tag/${tag}/`}
             class="group flex items-center justify-between px-4 py-3 bg-white border border-gray-100 hover:border-karada-blue/40 rounded-lg transition-colors"
           >
             <span class="text-sm font-medium text-gray-800 group-hover:text-karada-blue transition-colors">
@@ -92,7 +92,7 @@ const topCategories = Object.entries(tagCount)
         ))}
       </div>
       <div class="mt-4 text-right">
-        <a href="/blog" class="text-karada-blue text-sm font-medium hover:underline">すべての記事を見る →</a>
+        <a href="/blog/" class="text-karada-blue text-sm font-medium hover:underline">すべての記事を見る →</a>
       </div>
     </section>
   )}
@@ -110,7 +110,7 @@ const topCategories = Object.entries(tagCount)
             医師になって10年以上、感染症の診療を続けています。
             医学書や論文の執筆経験を活かして、日々の診療で役立つ情報をお届けします。
           </p>
-          <a href="/about" class="inline-block mt-3 text-karada-blue text-sm font-medium hover:underline">
+          <a href="/about/" class="inline-block mt-3 text-karada-blue text-sm font-medium hover:underline">
             詳しいプロフィール →
           </a>
         </div>

@@ -125,7 +125,7 @@ const topTags = Object.entries(tagCount)
           </div>
         </a>
         <nav class="flex items-center gap-1">
-          <a href="/blog" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">記事</a>
+          <a href="/blog/" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">記事</a>
           {topTags.length > 0 && (
             <details class="relative group" data-nav-categories>
               <summary class="list-none px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors cursor-pointer flex items-center gap-1 select-none">
@@ -134,18 +134,18 @@ const topTags = Object.entries(tagCount)
               </summary>
               <div class="absolute right-0 mt-1 min-w-[200px] bg-white border border-gray-100 rounded-lg shadow-lg py-2 z-10">
                 {topTags.map(([tag, count]) => (
-                  <a href={`/blog/tag/${tag}`} class="block px-4 py-2 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light transition-colors">
+                  <a href={`/blog/tag/${tag}/`} class="block px-4 py-2 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light transition-colors">
                     #{tag} <span class="text-xs text-gray-400">({count})</span>
                   </a>
                 ))}
                 <div class="border-t border-gray-100 mt-1 pt-1">
-                  <a href="/blog" class="block px-4 py-2 text-sm text-karada-blue font-medium hover:bg-karada-blue-light transition-colors">すべての記事を見る →</a>
+                  <a href="/blog/" class="block px-4 py-2 text-sm text-karada-blue font-medium hover:bg-karada-blue-light transition-colors">すべての記事を見る →</a>
                 </div>
               </div>
             </details>
           )}
-          <a href="/about" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">プロフィール</a>
-          <a href="/contact" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">お問い合わせ</a>
+          <a href="/about/" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">プロフィール</a>
+          <a href="/contact/" class="px-3 py-1.5 text-sm text-gray-700 hover:text-karada-blue hover:bg-karada-blue-light rounded-lg transition-colors">お問い合わせ</a>
         </nav>
         <script is:inline>
           // Close <details> dropdown when clicking outside
@@ -184,7 +184,7 @@ const topTags = Object.entries(tagCount)
               <div class="text-white font-bold mb-4">カテゴリ</div>
               <ul class="space-y-2 text-sm">
                 {topTags.map(([tag, count]) => (
-                  <li><a href={`/blog/tag/${tag}`} class="text-gray-400 hover:text-karada-blue transition-colors">#{tag} <span class="opacity-60">({count})</span></a></li>
+                  <li><a href={`/blog/tag/${tag}/`} class="text-gray-400 hover:text-karada-blue transition-colors">#{tag} <span class="opacity-60">({count})</span></a></li>
                 ))}
               </ul>
             </div>
@@ -192,17 +192,17 @@ const topTags = Object.entries(tagCount)
           <div>
             <div class="text-white font-bold mb-4">コンテンツ</div>
             <ul class="space-y-2 text-sm">
-              <li><a href="/blog" class="text-gray-400 hover:text-karada-blue transition-colors">医療記事</a></li>
-              <li><a href="/about" class="text-gray-400 hover:text-karada-blue transition-colors">プロフィール</a></li>
-              <li><a href="/contact" class="text-gray-400 hover:text-karada-blue transition-colors">お問い合わせ</a></li>
+              <li><a href="/blog/" class="text-gray-400 hover:text-karada-blue transition-colors">医療記事</a></li>
+              <li><a href="/about/" class="text-gray-400 hover:text-karada-blue transition-colors">プロフィール</a></li>
+              <li><a href="/contact/" class="text-gray-400 hover:text-karada-blue transition-colors">お問い合わせ</a></li>
             </ul>
           </div>
         </div>
         <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
           <p>© {new Date().getFullYear()} Tasunaro. All rights reserved.</p>
           <div class="flex gap-4">
-            <a href="/privacy" class="hover:text-gray-300">プライバシーポリシー</a>
-            <a href="/disclaimer" class="hover:text-gray-300">免責事項</a>
+            <a href="/privacy/" class="hover:text-gray-300">プライバシーポリシー</a>
+            <a href="/disclaimer/" class="hover:text-gray-300">免責事項</a>
           </div>
         </div>
       </div>

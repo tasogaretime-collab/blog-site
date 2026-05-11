@@ -40,7 +40,7 @@ const popularTags = Object.entries(tagCount)
       <nav class="text-sm text-gray-500 mb-4">
         <a href="/" class="hover:text-karada-blue">ホーム</a>
         <span class="mx-2">/</span>
-        <a href="/blog" class="hover:text-karada-blue">記事一覧</a>
+        <a href="/blog/" class="hover:text-karada-blue">記事一覧</a>
         <span class="mx-2">/</span>
         <span class="text-gray-700">#{tag}</span>
       </nav>
@@ -52,10 +52,10 @@ const popularTags = Object.entries(tagCount)
     <div class="mb-8 pb-6 border-b border-gray-100">
       <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3" style="letter-spacing: 0.18em;">よく読まれているテーマ</p>
       <div class="flex flex-wrap gap-2">
-        <a href="/blog" class="tag-badge hover:bg-karada-blue hover:text-white transition-colors">すべて ({allPosts.length})</a>
+        <a href="/blog/" class="tag-badge hover:bg-karada-blue hover:text-white transition-colors">すべて ({allPosts.length})</a>
         {popularTags.map(([t, count]) => (
           <a
-            href={`/blog/tag/${t}`}
+            href={`/blog/tag/${t}/`}
             class:list={[
               'tag-badge transition-colors',
               t === tag ? 'bg-karada-blue text-white' : 'hover:bg-karada-blue hover:text-white',

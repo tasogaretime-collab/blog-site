@@ -19,7 +19,7 @@ const formattedDate = pubDate.toLocaleDateString('ja-JP', {
 });
 ---
 
-<a href={`/blog/${slug}`} class={`card block p-5 border hover:border-karada-blue transition-all duration-200 group relative ${featured ? 'border-karada-blue/30 bg-karada-blue-light/30' : 'border-gray-200'}`}>
+<a href={`/blog/${slug}/`} class={`card block p-5 border hover:border-karada-blue transition-all duration-200 group relative ${featured ? 'border-karada-blue/30 bg-karada-blue-light/30' : 'border-gray-200'}`}>
   {ogImage && (
     <div class="-mx-5 -mt-5 mb-4 relative">
       <img src={ogImage} alt="" class="w-full rounded-t-xl object-cover aspect-[1.91/1]" loading="lazy" />

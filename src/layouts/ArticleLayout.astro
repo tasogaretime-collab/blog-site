@@ -167,7 +167,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
       <nav class="text-xs text-gray-400 mb-8">
         <a href="/" class="hover:text-gray-600 transition-colors">ホーム</a>
         <span class="mx-1.5">/</span>
-        <a href="/blog" class="hover:text-gray-600 transition-colors">記事一覧</a>
+        <a href="/blog/" class="hover:text-gray-600 transition-colors">記事一覧</a>
       </nav>
 
       <!-- Title -->
@@ -179,7 +179,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
       <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 mb-6">
         <div class="flex items-center gap-2">
           <img src="/images/profile.jpg" alt="Tasunaro" class="w-6 h-6 rounded-full object-cover" />
-          <a href="/about" class="font-medium text-gray-700 hover:text-karada-blue transition-colors">Tasunaro</a>
+          <a href="/about/" class="font-medium text-gray-700 hover:text-karada-blue transition-colors">Tasunaro</a>
           <span class="text-gray-300">·</span>
           <span class="text-gray-400">感染症専門医</span>
         </div>
@@ -200,7 +200,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
         <div class="flex flex-wrap gap-1.5">
           {tags.map((tag) => (
             <a
-              href={`/blog/tag/${tag}`}
+              href={`/blog/tag/${tag}/`}
               class="text-xs text-gray-400 hover:text-karada-blue transition-colors"
             >
               #{tag}
@@ -275,7 +275,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
                     <span class="shrink-0 mt-2 w-1.5 h-1.5 rounded-full bg-karada-blue/60" aria-hidden="true"></span>
                     <div class="flex-1 min-w-0">
                       <a
-                        href={`/blog/${p.slug}`}
+                        href={`/blog/${p.slug}/`}
                         class="text-base font-medium text-karada-blue hover:underline leading-snug inline-flex items-start gap-2"
                       >
                         {p.isPillar && (
@@ -301,7 +301,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {prevPost ? (
                   <a
-                    href={`/blog/${prevPost.slug}`}
+                    href={`/blog/${prevPost.slug}/`}
                     class="group flex flex-col gap-3 rounded-xl bg-gray-50 px-5 py-5 transition-all hover:bg-karada-blue/5 hover:shadow-md"
                   >
                     <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-karada-blue transition-colors" style="letter-spacing: 0.16em;">
@@ -318,7 +318,7 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString('ja-JP', {
 
                 {nextPost ? (
                   <a
-                    href={`/blog/${nextPost.slug}`}
+                    href={`/blog/${nextPost.slug}/`}
                     class="group flex flex-col gap-3 rounded-xl bg-gray-50 px-5 py-5 transition-all hover:bg-karada-blue/5 hover:shadow-md md:text-right"
                   >
                     <span class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-karada-blue transition-colors md:justify-end" style="letter-spacing: 0.16em;">
