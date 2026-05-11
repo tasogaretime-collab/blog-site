@@ -6,5 +6,11 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://tasunaro.com',
   trailingSlash: 'always',
-  integrations: [mdx(), sitemap(), tailwind()],
+  integrations: [
+    mdx(),
+    sitemap({
+      filter: (page) => !page.includes('/blog/tag/'),
+    }),
+    tailwind(),
+  ],
 });
