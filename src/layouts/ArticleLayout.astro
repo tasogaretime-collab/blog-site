@@ -54,7 +54,7 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "ホーム", "item": Astro.site?.href },
-    { "@type": "ListItem", "position": 2, "name": "記事一覧", "item": new URL("/blog", Astro.site).href },
+    { "@type": "ListItem", "position": 2, "name": "記事一覧", "item": new URL("/blog/", Astro.site).href },
     { "@type": "ListItem", "position": 3, "name": title },
   ],
 };
@@ -63,7 +63,7 @@ const authorPerson = {
   "@type": "Person",
   "name": "Tasunaro",
   "jobTitle": "感染症専門医",
-  "url": new URL("/about", Astro.site).href,
+  "url": new URL("/about/", Astro.site).href,
   "image": new URL("/images/profile.jpg", Astro.site).href,
   "sameAs": ["https://x.com/xRLtqMcxxZ75089"],
   "knowsAbout": [

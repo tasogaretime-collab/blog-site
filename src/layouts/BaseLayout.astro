@@ -84,7 +84,7 @@ const topTags = Object.entries(tagCount)
         "@type": "Person",
         "name": "Tasunaro",
         "jobTitle": "感染症専門医",
-        "url": new URL("/about", Astro.site).href,
+        "url": new URL("/about/", Astro.site).href,
         "image": new URL("/images/profile.jpg", Astro.site).href,
         "sameAs": ["https://x.com/xRLtqMcxxZ75089"],
         "knowsAbout": ["感染症", "ワクチン", "抗菌薬", "渡航医学", "薬剤耐性"]
@@ -93,7 +93,7 @@ const topTags = Object.entries(tagCount)
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": new URL("/blog?q={search_term_string}", Astro.site).href
+          "urlTemplate": new URL("/blog/?q={search_term_string}", Astro.site).href
         },
         "query-input": "required name=search_term_string"
       }
