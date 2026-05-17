@@ -439,3 +439,48 @@
   font-size: 1rem;
   line-height: 1.75;
 }
+
+/* Callout（注意喚起・補足ボックス・タイトルのみ強調） */
+.article-callout {
+  margin: 2rem 0;
+}
+
+.callout-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+
+.article-callout-warning .callout-title {
+  color: #b45309;
+}
+
+.article-callout-info .callout-title {
+  color: #15803d;
+}
+
+.article-callout p {
+  margin-bottom: 0.6rem;
+  color: var(--color-text-body);
+  line-height: 1.75;
+}
+
+.article-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.article-callout ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+  color: var(--color-text-body);
+}
+
+.article-callout li {
+  margin-bottom: 0.35rem;
+  line-height: 1.7;
+}
+
+.article-callout li:last-child {
+  margin-bottom: 0;
+}
