@@ -73,7 +73,7 @@
 
   .prose table {
     @apply w-full mb-6;
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     border-collapse: separate;
     border-spacing: 0;
     border-radius: 12px;
@@ -85,11 +85,11 @@
     background: #f0f9fb;
     color: var(--color-text-primary);
     font-weight: 600;
-    @apply px-4 py-2 text-left;
+    @apply px-2 py-2 text-left;
   }
 
   .prose td {
-    @apply border-b px-4 py-2;
+    @apply border-b px-2 py-2;
     border-color: var(--color-border-light);
   }
 
@@ -98,6 +98,35 @@
        compressing other columns. Use word-break for natural Japanese wrapping. */
     word-break: keep-all;
     overflow-wrap: anywhere;
+  }
+
+  /* 薬剤早見表専用（mycoplasma-genitalium 記事ほか .drug-quickref で囲んだ表）。
+     auto レイアウトだと用量列が幅を奪い、副作用列で「害」「状」などが
+     1文字だけ折り返す（モグラ叩き）ため、列幅を固定して防ぐ。
+     スコープを .drug-quickref に限定し他記事の表には影響させない。 */
+  .prose .drug-quickref table {
+    table-layout: fixed;
+  }
+  .prose .drug-quickref th,
+  .prose .drug-quickref td {
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+  .prose .drug-quickref th:nth-child(1),
+  .prose .drug-quickref td:nth-child(1) {
+    width: 23%;
+  }
+  .prose .drug-quickref th:nth-child(2),
+  .prose .drug-quickref td:nth-child(2) {
+    width: 31%;
+  }
+  .prose .drug-quickref th:nth-child(3),
+  .prose .drug-quickref td:nth-child(3) {
+    width: 26%;
+  }
+  .prose .drug-quickref th:nth-child(4),
+  .prose .drug-quickref td:nth-child(4) {
+    width: 20%;
   }
 
   .prose tr:nth-child(even) td {
