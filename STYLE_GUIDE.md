@@ -107,34 +107,33 @@ frontmatter `faq:` セクションは構造化データとして本文とは独�
 
 ---
 
-## §2 リンク戦略（3層構造）[Collaboration]
+## §2 リンク戦略（frontmatter relatedSlugs + 自動表示のみ）[Collaboration]
 
-100本規模を見据えた構造。文中リンクをばら撒く戦略は20本台で破綻するため、**Pillar → Series → Crosslink** の3層で管理する。
+> ⚠️ 2026-06-08 改訂: **本文中ハイパーリンク全面禁止**（SKILL.md 冒頭の絶対ルール参照）。リード・段落・FAQ・callout・action-list・summary-box・締めのすべてで `[テキスト](URL)` 形式を置かない。内部リンクは **frontmatter `relatedSlugs` ＋ ArticleLayout の自動「同シリーズ記事」末尾表示のみ**で確保する。以下の「文中リンク本数・位置・pillar戻りリンク必須・Crosslink 本文リンク」の指示は本改訂で無効。
+
+100本規模を見据え、シリーズ分類（Pillar / クラスター）で記事を構造化する。回遊は本文リンクではなく、frontmatter と ArticleLayout の自動表示で担保する。
 
 ### Layer 1: Pillar Page（テーマの総論記事・10-20本に1本）
 
 各シリーズの「玄関ページ」。広く浅く全体像を語り、各論記事への双方向リンクのハブになる。frontmatter の `isPillar: true` を立てる。
 
 - **役割**: 「○○ まとめ」「○○ とは」のビッグワード獲得、E-E-A-T のシグナル形成
-- **本数**: 文中リンクは **5-10本許容**（同シリーズの各論記事へのハブとして機能）
-- **書き方**: 各論記事の概要を1〜2文で紹介しながら自然に文中リンク
+- **ハブ機能**: 各論記事との相互参照は frontmatter `relatedSlugs`＋自動末尾表示で担う（本文リンクは置かない）
 - **既存実例**: `antibiotic-resistance-amr`（AMR pillar）、`post-travel-fever-triage-48h-2026`（travel pillar）
 
 ### Layer 2: クラスター記事（同シリーズの各論記事）
 
 - **役割**: ロングテールキーワードの獲得、特定トピックの深堀り
 - **frontmatter**: `series: amr | vaccine-adult | vaccine-rsv | sti | travel | outbreak-news | pediatric | other`
-- **本数**: 文中リンクは **本文中1〜2本まで**（同シリーズへの戻りリンクは自動表示されるので、文中で過度にリンクしない）
-- **必須リンク**: pillar記事への戻りリンク **1本**（本文中の自然な接続部に置く）
+- **内部リンク**: 本文リンクは置かない。同シリーズへの回遊は ArticleLayout の自動末尾表示（下記 §2B）で供給される
 - **自動連携**: ArticleLayout が末尾に「同じシリーズの記事」セクションを自動表示（pillar優先・最大5本）。執筆者の作業は不要
 
 ### Layer 3: Crosslink（シリーズを跨ぐ関連リンク）
 
 - **役割**: シリーズ境界を越えた強い文脈的必然性のある関連
-- **本数**: **文中1本まで**（強い必然性がある時のみ）
-- **位置**: 本文中の自然な接続部（末尾締め直前は重複しやすいので避ける）
-- **例**: post-travel-fever（travel）→ meningococcal-vaccine（vaccine-adult）：留学前ワクチンと帰国後発熱の文脈
-- **避けるべき**: 「関連記事:」のリスト羅列、リンクのためのリンク、末尾に複数本まとめて並べる
+- **方法**: 本文リンクは置かない。frontmatter `relatedSlugs` に対象slugを追加して関連付ける（強い必然性がある時のみ）
+- **例**: post-travel-fever（travel）⇄ meningococcal-vaccine（vaccine-adult）：留学前ワクチンと帰国後発熱の文脈を relatedSlugs で相互参照
+- **避けるべき**: 「関連記事:」のリスト羅列、リンクのためのリンク、本文への手動リンク
 
 ### 2A. 前/次ナビ（自動）
 
@@ -152,20 +151,19 @@ frontmatter `faq:` セクションは構造化データとして本文とは独�
 
 ### 2C. 逆リンク（旧記事 → 新記事）
 
-新記事公開時、**同シリーズ内の関連深い旧記事1本に限定** して逆リンクを追加（複数記事への追加は避ける・自動連携で十分）。
+新記事公開時、関連の深い旧記事（特に pillar）の frontmatter `relatedSlugs` に新記事slugを追加する。**本文には書かない。**
 
-- pillar記事には新記事を **必ず** 追加（pillarがハブとして機能するため）
-- 旧記事の `updatedDate` を更新日に揃える
-- 逆リンクの位置: 締めの段落直前 or 締めの段落の中
+- pillar記事には新記事slugを **必ず** `relatedSlugs` に追加（pillarがハブとして機能するため）
+- 同シリーズ記事は自動末尾カードで供給されるため追記不要。**別シリーズの pillar 等、自動カード対象外の記事のみ** relatedSlugs に追加
+- **本文を編集していないので旧記事の `updatedDate` は変えない**（relatedSlugs 追加のみ＝鮮度詐欺回避）
 
 ### §2 チェックリスト
 
 - [ ] 記事の `series` を frontmatter で指定したか（必須）
 - [ ] pillar記事ならば `isPillar: true` を立てたか
-- [ ] クラスター記事の場合、pillar記事への文中リンク1本を入れたか
-- [ ] 同シリーズ内の文中リンクは本文中1〜2本に収まっているか
-- [ ] シリーズ跨ぎリンク（Crosslink）は1本まで、強い必然性があるか
-- [ ] pillar記事に新記事への逆リンクを追加したか（必須）
+- [ ] 本文リンクが 0件か（`grep -c '](/blog' {slug}.mdx` → 0）
+- [ ] シリーズ跨ぎの関連は frontmatter `relatedSlugs` で設計したか（強い必然性がある時のみ）
+- [ ] 新記事公開時、対象 pillar 等の frontmatter `relatedSlugs` に新slugを追加したか（本文リンクは書かない）
 - [ ] 末尾に手動で「関連記事」リストを書いていないか（自動表示と重複するため不要）
 
 ---
@@ -210,7 +208,7 @@ Tasunaro ブログの視覚要素は MDX 直書きの `div`/`nav` クラスで�
 - [ ] StatGrid は核心数値があれば2〜4個
 - [ ] 目次 nav に toc-badge 付きで全H2を列挙
 - [ ] 行動を促す内容があれば ActionList で①②③化
-- [ ] 締めの段落の前後に SummaryBox or 文中リンクで余韻を作る
+- [ ] 締めの段落の前後に SummaryBox で余韻を作る
 - [ ] frontmatter の faq に3〜5問
 
 ---
@@ -300,7 +298,7 @@ faq:
 - [x] STYLE_GUIDE §1G 例外追加: H3見出しは「略称（日本語）」順を許容（見出しの可読性優先）
 - [x] STYLE_GUIDE §1C 「ギラン・バレー症候群」→「ギランバレー症候群」（中黒なし）に正本変更（dengue/sftsの最新トレンドに合わせる）
 
-**B-リンク: 文中リンク密度低の記事に追加（2026-05-01対応済み）**
+**B-リンク: 文中リンク密度低の記事に追加（2026-05-01対応済み）** ⚠️2026-06-08 本文リンク全面禁止により無効化（記録のみ・下記で追加した本文リンクは relatedSlugs へ移行し本文からは撤去する）
 - [x] `post-travel-fever-triage-48h-2026.mdx`: dengue-GBS / sfts への文中リンク2本を末尾締めに追加
 - [x] `herpes-zoster-vaccine-comparison.mdx`: pneumococcal / rsv-vaccine-adults への高齢者ワクチン群誘導を追加
 - [x] `meningococcal-vaccine-japan.mdx`: post-travel-fever-triage への帰国後発熱誘導を追加
@@ -346,7 +344,7 @@ Phase 2（構成）でこのガイドを必ず読む:
 
 Phase 3（執筆）でこのガイドの §1〜§5 をチェックリストとして消化:
 - 初出略語 grep
-- 文中リンク2〜5本
+- 内部リンクは frontmatter relatedSlugs で設計（本文リンクは置かない）
 - SummaryBox 冒頭+任意で締め
 - DOI WebFetch検証
 
