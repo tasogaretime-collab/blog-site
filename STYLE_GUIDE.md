@@ -349,7 +349,7 @@ Phase 3（執筆）でこのガイドの §1〜§5 をチェックリストと�
 - SummaryBox 冒頭+任意で締め
 - DOI WebFetch検証
 
-Phase 4（レビュー）で `article-reviewer` subagent と Codex に **本ガイドへの違反** を独立観点として点検させる。**§9 採否ルールに従い、Personality 領域への指摘は ❌不同意デフォルトで処理する**。
+Phase 4（レビュー）で **敵対ペルソナレビュー（メインコンテキスト内製・`article-reviewer` subagent は2026-05-05に廃止）** と Codex に **本ガイドへの違反** を独立観点として点検させる。**§9 採否ルールに従い、Personality 領域への指摘は ❌不同意デフォルトで処理する**。
 
 ---
 
