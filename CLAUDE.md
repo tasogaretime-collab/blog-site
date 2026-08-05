@@ -1,14 +1,31 @@
 # blog-site (Astro v5 + MDX)
 
+感染症専門医 Tasunaro の個人ブログ。**記事執筆は `/article` スキルが正本**
+（`~/.claude/skills/article/SKILL.md`・このリポジトリを19箇所で直接参照する）。
+本ファイルはリポジトリ固有の制約だけを書く。KARADAクリニックの記事は別物で `/karada`。
+
 ## Dev server
 ```bash
 cd /c/blog-site && npx astro dev --port 4321 &
 ```
 ポートが使用中の場合は4322, 4323...と自動移行する。
+※ `package.json` の scripts は `dev` / `build` / `preview`（`npm run dev` でも同じ）。
+
+## OGP生成スクリプト（scripts/）
+`scripts/build-ogp.mjs`（1枚）・`scripts/build-all-ogps.mjs`（一括）＋ `templates/` `fonts/`。
+別経路として、ルート直下の `generate-og.py` が **ローカル環境変数の `GEMINI_API_KEY` を読む**
+（Vercel にはシークレットを置いていない）。詳細は `scripts/README.md`。
 
 ## MDX制約
 - `{#id}` 構文禁止（JSX式としてパースされエラー）
-- article-tocのhrefは日本語見出しそのまま（rehype-slug準拠）
+- **目次（`class="article-toc"`）の href は手書きなので、見出しをそのままコピーするとリンクが切れる**
+  - 見出しIDは Astro 組み込みの **github-slugger** が自動生成する（🔴 `rehype-slug` は依存にも
+    `astro.config.mjs` にも**存在しない**＝旧記載は誤り。2026-08-05 に実測で訂正）
+  - 変換規則（ビルド済み `dist/` で実測）: **日本語はそのまま残る／記号（`—` `「」` `：` 等）は削除／
+    半角スペースはハイフンになる**
+  - 実例: `## のどの淋菌という盲点 — 無症候が「耐性の時間」をつくる`
+    → `id="のどの淋菌という盲点--無症候が耐性の時間をつくる"`（スペース2つ分で `--`）
+  - 迷ったら**推測せずビルド後の実物を見る**: `grep -oE '<h2 id="[^"]*"' dist/blog/<slug>/index.html`
 
 ## OGP画像
 - og:imageは絶対URLが必須（BaseLayout.astroで`new URL(ogImage, Astro.site).href`に変換済み）
