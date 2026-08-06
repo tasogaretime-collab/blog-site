@@ -1,0 +1,32 @@
+<!-- @dsCard group="Components" name="Tag Badges" subtitle="pill tags, primary-light fill" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasunaro Blog — Tag Badges</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "Yu Gothic", sans-serif;
+    background: #fafbfc; color: #2c2c2c; padding: 40px;
+  }
+  .label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; font-weight: 700; margin-bottom: 12px; }
+  .spec { font-size: .75rem; color: #6b7280; font-family: ui-monospace, monospace; margin-top: 16px; }
+  .tags { display: flex; gap: 10px; flex-wrap: wrap; }
+  .tag { background: #E6F8FB; color: #00B2CA; font-size: .75rem; font-weight: 500; padding: 2px 10px; border-radius: 9999px; }
+  .tag.green { background: #F0F9E6; color: #5a9e1f; }
+</style>
+</head>
+<body>
+  <div class="label">Tag / Category badge</div>
+  <div class="tags">
+    <span class="tag">ワクチン</span>
+    <span class="tag">感染症</span>
+    <span class="tag">エビデンス</span>
+    <span class="tag green">予防</span>
+    <span class="tag green">公衆衛生</span>
+  </div>
+  <div class="spec">bg primary-light #E6F8FB / text primary / .75rem / weight 500 / pad 2×10 / radius full</div>
+</body>
+</html>

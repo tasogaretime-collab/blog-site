@@ -1,0 +1,33 @@
+<!-- @dsCard group="Slide Layouts" name="05 Three-up (steps/points)" subtitle="3点・3ステップを横並び" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout — Three-up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;}
+  body{background:#e9edf1;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;}
+  .slide{width:100%;aspect-ratio:16/9;background:#f4fafb;display:flex;flex-direction:column;justify-content:center;padding:6% 8%;}
+  .eyebrow{font-weight:700;font-size:1.5vw;letter-spacing:.12em;text-transform:uppercase;color:#00B2CA;}
+  h2{font-family:"Noto Serif JP",serif;font-size:2.7vw;margin:1.2% 0 0;color:#2c2c2c;}
+  .row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8vw;margin-top:3.5%;}
+  .q{background:#fff;border:1px solid #e5e7eb;border-radius:1.2vw;padding:3.2% 2.8%;}
+  .n{font-family:"Noto Serif JP",serif;font-size:3.2vw;font-weight:900;line-height:1;background:linear-gradient(135deg,#00B2CA,#7DC83E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .q h3{font-size:1.6vw;margin:6% 0 3%;color:#2c2c2c;}
+  .q p{font-size:1.15vw;color:#444;line-height:1.7;}
+</style>
+</head>
+<body>
+  <div class="slide">
+    <span class="eyebrow">3 Points</span>
+    <h2>3つのポイント／ステップ</h2>
+    <div class="row">
+      <div class="q"><div class="n">01</div><h3>ひとつ目</h3><p>各項目の見出しと短い説明。3つに整理すると覚えやすい。</p></div>
+      <div class="q"><div class="n">02</div><h3>ふたつ目</h3><p>順番のある手順にも、並列のポイントにも使えます。</p></div>
+      <div class="q"><div class="n">03</div><h3>みっつ目</h3><p>番号はセリフのグラデーションでブランドを効かせます。</p></div>
+    </div>
+  </div>
+</body>
+</html>

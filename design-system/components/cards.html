@@ -1,0 +1,60 @@
+<!-- @dsCard group="Components" name="Cards & Boxes" subtitle="article card, summary box, stat card" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasunaro Blog — Cards &amp; Boxes</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "Yu Gothic", sans-serif;
+    background: #fafbfc; color: #2c2c2c; padding: 40px;
+  }
+  .label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; font-weight: 700; margin-bottom: 12px; }
+  .block { margin-bottom: 32px; }
+  /* card */
+  .card { background: #FFFFFF; border-radius: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); padding: 20px; max-width: 360px; }
+  .card .tag { background: #E6F8FB; color: #00B2CA; font-size: .75rem; font-weight: 500; padding: 2px 10px; border-radius: 9999px; }
+  .card h3 { font-size: 1.0625rem; font-weight: 700; margin: 12px 0 6px; line-height: 1.5; color: #2c2c2c; }
+  .card p { font-size: .875rem; color: #6b7280; line-height: 1.6; }
+  /* summary box */
+  .summary { background: #f4fafb; border-radius: 12px; padding: 24px; position: relative; overflow: hidden; max-width: 520px; }
+  .summary::before { content:""; position:absolute; top:0; left:0; right:0; height:4px; background: linear-gradient(135deg,#00B2CA,#7DC83E); }
+  .summary .t { font-weight: 700; margin-bottom: 8px; color: #2c2c2c; }
+  .summary p { font-size: .9375rem; color: #444; line-height: 1.7; }
+  /* stat cards */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 520px; }
+  .stat { background: #fafbfc; border: 1px solid #e5e7eb; border-radius: 12px; text-align: center; padding: 20px 12px; }
+  .stat .num { font-size: 1.75rem; font-weight: 700; background: linear-gradient(135deg,#00B2CA,#7DC83E); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .stat .cap { font-size: .75rem; color: #6b7280; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="block">
+    <div class="label">Article Card</div>
+    <div class="card">
+      <span class="tag">ワクチン</span>
+      <h3>インフルエンザワクチンは本当に効くのか</h3>
+      <p>有効率の意味と、報道で誤解されやすいポイントを専門医が整理します。</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="label">Summary Box</div>
+    <div class="summary">
+      <div class="t">この記事のまとめ</div>
+      <p>ワクチンの「有効率」は感染ゼロを意味しない。相対リスク減少と絶対リスク減少を区別して読むことが重要。</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="label">Stat Cards</div>
+    <div class="stats">
+      <div class="stat"><div class="num">60%</div><div class="cap">発症予防効果</div></div>
+      <div class="stat"><div class="num">2回</div><div class="cap">推奨接種回数</div></div>
+      <div class="stat"><div class="num">2週</div><div class="cap">抗体上昇まで</div></div>
+    </div>
+  </div>
+</body>
+</html>

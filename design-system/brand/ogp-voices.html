@@ -1,0 +1,65 @@
+<!-- @dsCard group="Brand" name="OGP Voices" subtitle="light / dark / editorial sub-brands" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasunaro Blog — OGP Voices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "Yu Gothic", sans-serif;
+    background: #fafbfc; color: #2c2c2c; padding: 40px;
+  }
+  .label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; font-weight: 700; margin-bottom: 10px; }
+  .desc { font-size: .8125rem; color: #6b7280; margin-top: 8px; line-height: 1.6; }
+  .block { margin-bottom: 30px; }
+  .ogp { width: 100%; max-width: 560px; aspect-ratio: 1200/630; border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 36px; border: 1px solid #e5e7eb; }
+  /* light */
+  .v-light { background: #FFFFFF; }
+  .v-light .eyebrow { color: #00B2CA; font-weight: 700; font-size: .8125rem; letter-spacing: .08em; }
+  .v-light .title { color: #1A1A2E; font-weight: 700; font-size: 1.75rem; line-height: 1.4; margin-top: 10px; }
+  .v-light .rule { height: 4px; width: 64px; background: linear-gradient(135deg,#00B2CA,#7DC83E); margin-top: 16px; border-radius: 2px; }
+  /* dark */
+  .v-dark { background: #0D1B2A; }
+  .v-dark .eyebrow { color: #00D4F0; font-weight: 700; font-size: .8125rem; letter-spacing: .08em; }
+  .v-dark .title { color: #FFFFFF; font-weight: 700; font-size: 1.75rem; line-height: 1.4; margin-top: 10px; text-shadow: 0 0 24px rgba(0,212,240,.45); }
+  /* editorial */
+  .v-edit { background: #FFFFFF; border-left: 8px solid #1A2332; }
+  .v-edit .eyebrow { color: #00B2CA; font-weight: 700; font-size: .8125rem; letter-spacing: .12em; text-transform: uppercase; }
+  .v-edit .title { font-family: "Noto Serif JP", serif; color: #1A2332; font-weight: 700; font-size: 1.75rem; line-height: 1.45; margin-top: 12px; border-bottom: 3px solid #1A2332; padding-bottom: 14px; }
+</style>
+</head>
+<body>
+  <div class="block">
+    <div class="label">ogp-blog-light — 白背景ミニマル</div>
+    <div class="ogp v-light">
+      <div class="eyebrow">VACCINE</div>
+      <div class="title">ワクチンの有効率の<br>正しい読み方</div>
+      <div class="rule"></div>
+    </div>
+    <div class="desc">一般的なワクチン・感染症解説向け。白背景・大きな余白・タイポグラフィ主体。ターコイズ/グリーンはアクセントのみ。</div>
+  </div>
+
+  <div class="block">
+    <div class="label">ogp-blog-dark — アウトブレイク速報</div>
+    <div class="ogp v-dark">
+      <div class="eyebrow">OUTBREAK</div>
+      <div class="title">麻疹の感染拡大<br>いま知るべきこと</div>
+    </div>
+    <div class="desc">アウトブレイク速報・緊急情報・AMR関連。ダークネイビーに発光するターコイズで緊迫感・重要性を表現。</div>
+  </div>
+
+  <div class="block">
+    <div class="label">ogp-blog-editorial — 学術・ガイドライン</div>
+    <div class="ogp v-edit">
+      <div class="eyebrow">Guideline</div>
+      <div class="title">最新ガイドラインが<br>示す予防の指針</div>
+    </div>
+    <div class="desc">ガイドライン解説・統計データ・学術系。セリフ体＋太い構造線で新聞・学術誌の格式を演出。</div>
+  </div>
+</body>
+</html>

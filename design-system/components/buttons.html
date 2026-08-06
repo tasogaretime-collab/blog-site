@@ -1,0 +1,43 @@
+<!-- @dsCard group="Components" name="Buttons" subtitle="primary / secondary, hover states" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasunaro Blog — Buttons</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "Yu Gothic", sans-serif;
+    background: #fafbfc; color: #2c2c2c; padding: 40px;
+  }
+  .label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; font-weight: 700; margin-bottom: 10px; }
+  .spec { font-size: .75rem; color: #6b7280; font-family: ui-monospace, monospace; margin-top: 10px; }
+  .row { padding: 22px 0; border-bottom: 1px solid #f0f1f3; }
+  .btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+  .btn { padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: .9375rem; cursor: pointer; border: 2px solid transparent; transition: all .15s; }
+  .btn-primary { background: #00B2CA; color: #FFFFFF; }
+  .btn-primary:hover { background: #0090A6; }
+  .btn-secondary { background: #FFFFFF; color: #00B2CA; border-color: #00B2CA; }
+  .btn-secondary:hover { background: #00B2CA; color: #FFFFFF; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="label">Primary</div>
+    <div class="btns">
+      <button class="btn btn-primary">続きを読む</button>
+      <button class="btn btn-primary" style="background:#0090A6">続きを読む（hover）</button>
+    </div>
+    <div class="spec">bg primary #00B2CA / text #FFFFFF / hover #0090A6 / radius 12px / weight 700 / pad 12×24</div>
+  </div>
+  <div class="row" style="border-bottom:none">
+    <div class="label">Secondary (outline)</div>
+    <div class="btns">
+      <button class="btn btn-secondary">もっと見る</button>
+      <button class="btn btn-secondary" style="background:#00B2CA;color:#fff">もっと見る（hover）</button>
+    </div>
+    <div class="spec">bg #FFFFFF / text primary / border 2px primary / hover fill primary, text #FFFFFF</div>
+  </div>
+</body>
+</html>

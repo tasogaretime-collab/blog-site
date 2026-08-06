@@ -1,0 +1,39 @@
+<!-- @dsCard group="Typography" name="Body & Labels" subtitle="body, prose, label-caps, caption" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasunaro Blog — Body &amp; Labels</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "Yu Gothic", sans-serif;
+    background: #fafbfc; color: #2c2c2c; padding: 40px;
+  }
+  .label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; font-weight: 700; margin-bottom: 6px; }
+  .spec { font-size: .75rem; color: #6b7280; font-family: ui-monospace, monospace; margin-top: 6px; }
+  .row { padding: 18px 0; border-bottom: 1px solid #f0f1f3; max-width: 640px; }
+  .body-text { font-size: 1rem; line-height: 1.7; color: #444444; }
+  .label-caps { font-family: "Noto Sans JP", sans-serif; font-weight: 700; font-size: .875rem; letter-spacing: .08em; color: #2c2c2c; }
+  .caption { font-size: .875rem; color: #6b7280; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="label">Body</div>
+    <p class="body-text">本文はゴシック体で軽快に読ませる。行間1.7、字間を確保し、読者端末での表示安定性を優先して Web フォントは本文にロードしない。OS フォールバック（Hiragino → Meiryo → Yu Gothic）で運用する。</p>
+    <div class="spec">Hiragino Kaku Gothic ProN / 400 / 1rem / lh 1.7 / #444444</div>
+  </div>
+  <div class="row">
+    <div class="label">Label (caps)</div>
+    <div class="label-caps">CATEGORY / ワクチン</div>
+    <div class="spec">Noto Sans JP / 700 / .875rem / letter-spacing .08em</div>
+  </div>
+  <div class="row" style="border-bottom:none">
+    <div class="label">Caption</div>
+    <div class="caption">図1：ワクチン接種後の抗体価の推移（出典：……）</div>
+    <div class="spec">Hiragino Kaku Gothic ProN / 400 / .875rem / #6b7280</div>
+  </div>
+</body>
+</html>

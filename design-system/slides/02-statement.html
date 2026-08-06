@@ -1,0 +1,26 @@
+<!-- @dsCard group="Slide Layouts" name="02 Statement (light)" subtitle="主張1文：太字＋アクセント強調" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout — Statement (light)</title>
+<style>
+  *{box-sizing:border-box;margin:0;}
+  body{background:#e9edf1;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;}
+  .slide{width:100%;aspect-ratio:16/9;background:#fafbfc;display:flex;flex-direction:column;justify-content:center;padding:7% 9%;}
+  .eyebrow{font-weight:700;font-size:1.6vw;letter-spacing:.12em;text-transform:uppercase;color:#00B2CA;}
+  .big{font-size:3.4vw;line-height:1.55;font-weight:700;color:#2c2c2c;margin-top:2.5%;}
+  .big .em{color:#00B2CA;}
+  .note{font-size:1.5vw;color:#444;margin-top:4%;line-height:1.8;max-width:85%;}
+  .rule{height:.45vw;width:8vw;background:linear-gradient(135deg,#00B2CA,#7DC83E);border-radius:3px;margin-top:4%;}
+</style>
+</head>
+<body>
+  <div class="slide">
+    <span class="eyebrow">Key Message</span>
+    <div class="big">最も伝えたい一文を、<br>ここに<span class="em">大きく太字</span>で置きます。</div>
+    <p class="note">補足の説明文を1〜2行。強調は <strong>1スライド1か所</strong> に絞ると効きます。</p>
+    <div class="rule"></div>
+  </div>
+</body>
+</html>

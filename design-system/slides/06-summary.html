@@ -1,0 +1,37 @@
+<!-- @dsCard group="Slide Layouts" name="06 Summary (box)" subtitle="まとめ：上辺グラデのサマリーボックス" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout — Summary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;}
+  body{background:#e9edf1;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;}
+  .slide{width:100%;aspect-ratio:16/9;background:#FFFFFF;display:flex;flex-direction:column;justify-content:center;padding:6% 8%;}
+  .eyebrow{font-weight:700;font-size:1.5vw;letter-spacing:.12em;text-transform:uppercase;color:#00B2CA;}
+  .summary{background:#f4fafb;border-radius:1.1vw;padding:4% 4.5%;position:relative;overflow:hidden;margin-top:2.5%;}
+  .summary::before{content:"";position:absolute;top:0;left:0;right:0;height:.5vw;background:linear-gradient(135deg,#00B2CA,#7DC83E);}
+  .summary .t{font-family:"Noto Serif JP",serif;font-weight:700;font-size:2vw;margin-bottom:2.5%;}
+  .summary ul{list-style:none;}
+  .summary li{font-size:1.45vw;line-height:1.8;color:#444;padding-left:2.5vw;position:relative;margin-bottom:1.5%;}
+  .summary li::before{content:"";position:absolute;left:0;top:.6em;width:1vw;height:1vw;border-radius:3px;background:linear-gradient(135deg,#00B2CA,#7DC83E);}
+  .closing{font-family:"Noto Serif JP",serif;font-size:1.8vw;margin-top:4%;color:#1A2332;}
+</style>
+</head>
+<body>
+  <div class="slide">
+    <span class="eyebrow">Summary</span>
+    <div class="summary">
+      <div class="t">まとめ／3つの要点</div>
+      <ul>
+        <li>要点をひとつ目。<strong>太字</strong>で核を強調できます。</li>
+        <li>要点をふたつ目。3点に絞ると記憶に残ります。</li>
+        <li>要点をみっつ目。最後の締めにつなげます。</li>
+      </ul>
+    </div>
+    <p class="closing">締めの一言を、セリフ体で印象的に。</p>
+  </div>
+</body>
+</html>

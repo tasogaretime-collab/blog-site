@@ -1,0 +1,82 @@
+<!-- @dsCard group="Colors" name="Color Palette" subtitle="Brand / Text / Surface / Border tokens" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasunaro Blog — Color Palette</title>
+<style>
+  :root {
+    --primary: #00B2CA; --secondary: #7DC83E; --primary-dark: #0090A6;
+    --primary-light: #E6F8FB; --secondary-light: #F0F9E6; --cta-accent: #00D4F0;
+    --text-primary: #2c2c2c; --text-body: #444444; --text-secondary: #6b7280;
+    --text-deep: #1A1A2E; --text-editorial: #1A2332;
+    --surface: #fafbfc; --surface-soft: #f4fafb; --surface-light: #f0f9fb;
+    --surface-card-light: #F7F9FC; --surface-card-editorial: #F0F4F8;
+    --background: #FFFFFF; --background-dark: #0D1B2A; --surface-card-dark: #1E3A5F;
+    --border: #e5e7eb; --border-light: #f0f1f3;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "Yu Gothic", sans-serif;
+    background: var(--surface); color: var(--text-primary);
+    padding: 40px; line-height: 1.6;
+  }
+  h1 { font-family: "Noto Serif JP", serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 4px; }
+  .sub { color: var(--text-secondary); font-size: .875rem; margin-bottom: 28px; }
+  .section-title {
+    font-weight: 700; font-size: .8125rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--text-secondary); margin: 28px 0 12px;
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+  .swatch { border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; background: #fff; }
+  .chip { height: 64px; }
+  .meta { padding: 8px 10px; }
+  .name { font-size: .8125rem; font-weight: 700; }
+  .hex { font-size: .75rem; color: var(--text-secondary); font-family: ui-monospace, monospace; }
+  .grad { background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+</style>
+</head>
+<body>
+  <h1>Color Palette</h1>
+  <div class="sub">Tasunaro Blog — 清潔感・信頼感・読みやすさ。彩度を抑えたターコイズを主色、グリーンはアクセント面積5%以下。</div>
+
+  <div class="section-title">Brand</div>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#00B2CA"></div><div class="meta"><div class="name">primary</div><div class="hex">#00B2CA</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#7DC83E"></div><div class="meta"><div class="name">secondary</div><div class="hex">#7DC83E</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#0090A6"></div><div class="meta"><div class="name">primary-dark</div><div class="hex">#0090A6</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#E6F8FB"></div><div class="meta"><div class="name">primary-light</div><div class="hex">#E6F8FB</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F0F9E6"></div><div class="meta"><div class="name">secondary-light</div><div class="hex">#F0F9E6</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#00D4F0"></div><div class="meta"><div class="name">cta-accent</div><div class="hex">#00D4F0</div></div></div>
+    <div class="swatch"><div class="chip grad"></div><div class="meta"><div class="name">brand-gradient</div><div class="hex">135deg primary→secondary</div></div></div>
+  </div>
+
+  <div class="section-title">Text</div>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#2c2c2c"></div><div class="meta"><div class="name">text-primary</div><div class="hex">#2c2c2c</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#444444"></div><div class="meta"><div class="name">text-body</div><div class="hex">#444444</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#6b7280"></div><div class="meta"><div class="name">text-secondary</div><div class="hex">#6b7280</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1A1A2E"></div><div class="meta"><div class="name">text-deep</div><div class="hex">#1A1A2E</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1A2332"></div><div class="meta"><div class="name">text-editorial</div><div class="hex">#1A2332</div></div></div>
+  </div>
+
+  <div class="section-title">Surface &amp; Background</div>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid #eee"></div><div class="meta"><div class="name">background</div><div class="hex">#FFFFFF</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#fafbfc;border-bottom:1px solid #eee"></div><div class="meta"><div class="name">surface</div><div class="hex">#fafbfc</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#f4fafb;border-bottom:1px solid #eee"></div><div class="meta"><div class="name">surface-soft</div><div class="hex">#f4fafb</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#f0f9fb;border-bottom:1px solid #eee"></div><div class="meta"><div class="name">surface-light</div><div class="hex">#f0f9fb</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F7F9FC;border-bottom:1px solid #eee"></div><div class="meta"><div class="name">surface-card-light</div><div class="hex">#F7F9FC</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#F0F4F8;border-bottom:1px solid #eee"></div><div class="meta"><div class="name">surface-card-editorial</div><div class="hex">#F0F4F8</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#0D1B2A"></div><div class="meta"><div class="name">background-dark</div><div class="hex">#0D1B2A</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#1E3A5F"></div><div class="meta"><div class="name">surface-card-dark</div><div class="hex">#1E3A5F</div></div></div>
+  </div>
+
+  <div class="section-title">Border</div>
+  <div class="grid">
+    <div class="swatch"><div class="chip" style="background:#e5e7eb"></div><div class="meta"><div class="name">border</div><div class="hex">#e5e7eb</div></div></div>
+    <div class="swatch"><div class="chip" style="background:#f0f1f3"></div><div class="meta"><div class="name">border-light</div><div class="hex">#f0f1f3</div></div></div>
+  </div>
+</body>
+</html>

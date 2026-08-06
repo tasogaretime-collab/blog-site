@@ -286,6 +286,30 @@ Tasunaro Blog は感染症専門医の個人ブログ。**清潔感・信頼感�
 
 **現段階では本 DESIGN.md と上記姉妹ファイルは "非同期"** — 姉妹ファイルは独自に運用され、本ファイルはそれらを集約した上位 "置き手紙" として置く。同期を取るかは段階B への昇格時に判断する。
 
+## Claude Design Sync（2026-06-20〜）
+
+本デザインシステムは Claude Design（claude.ai/design）と同期済み。`DesignSync` ツールで双方向同期できる。
+
+- projectId: `1fb36fa0-6682-455e-ad60-b71bfbca446b`（name: "Tasunaro Blog"）
+- ローカル storybook bundle: `design-system/`（各 `.html` の1行目に `<!-- @dsCard group="..." -->`）
+- 更新フロー: 本 DESIGN.md（正本）→ 該当 HTMLカード → DesignSync 再同期（1コンポーネントずつ）
+
+## Slide Layouts（v1・2026-06-20）
+
+スライド/プレゼンの再利用レイアウト。`design-system/slides/` に格納（group="Slide Layouts"）。
+「Tasunaroブランドで “04の比較レイアウト” で作って」のように指定して再現する。
+
+| # | レイアウト | 用途 | 声 |
+|---|-----------|------|----|
+| 01 | Title (editorial) | 表紙・章の見出し | editorial（セリフ＋構造線） |
+| 02 | Statement (light) | 主張1文を大きく | light |
+| 03 | Section Divider (dark) | 章扉・話題転換 | dark（速報） |
+| 04 | Comparison (2 cards) | 2項目の対比 | light |
+| 05 | Three-up (steps/points) | 3点・3ステップ | light |
+| 06 | Summary (box) | まとめ | light |
+
+スライド共通則: アスペクト比 16:9、見出しは Noto Serif JP、グリーンはアクセント面積5%以下、light変種は背景を塗らない、スライド内に「Tasunaro」「感染症専門医」等の禁止語を書かない。
+
 ## Usage
 
 ### 現在のモード（段階A：置き手紙）

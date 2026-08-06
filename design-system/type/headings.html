@@ -1,0 +1,47 @@
+<!-- @dsCard group="Typography" name="Headings" subtitle="H1/H2 Noto Serif JP, H3 Gothic, gradient H2" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasunaro Blog — Headings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, "Yu Gothic", sans-serif;
+    background: #fafbfc; color: #2c2c2c; padding: 40px; line-height: 1.6;
+  }
+  .label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: #6b7280; font-weight: 700; margin-bottom: 6px; }
+  .spec { font-size: .75rem; color: #6b7280; font-family: ui-monospace, monospace; margin-top: 4px; }
+  .row { padding: 20px 0; border-bottom: 1px solid #f0f1f3; }
+  h1 { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 2.25rem; line-height: 1.4; color: #2c2c2c; }
+  h2 {
+    font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 1.5rem; line-height: 1.5;
+    background: linear-gradient(135deg, #00B2CA, #7DC83E);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  h3 { font-family: "Hiragino Kaku Gothic ProN", sans-serif; font-weight: 700; font-size: 1.25rem; color: #4b5563; }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="label">H1 — Page title</div>
+    <h1>感染症専門医が読み解く</h1>
+    <div class="spec">Noto Serif JP / 700 / 2.25rem / lh 1.4</div>
+  </div>
+  <div class="row">
+    <div class="label">H2 — Section (brand signature gradient)</div>
+    <h2>ワクチンの有効性とは</h2>
+    <div class="spec">Noto Serif JP / 700 / 1.5rem / lh 1.5 / gradient text 135deg primary→secondary</div>
+  </div>
+  <div class="row" style="border-bottom:none">
+    <div class="label">H3 — Sub-section</div>
+    <h3>研究デザインの読み方</h3>
+    <div class="spec">Hiragino Kaku Gothic ProN / 700 / 1.25rem / #4b5563</div>
+  </div>
+</body>
+</html>

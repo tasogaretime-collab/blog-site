@@ -1,0 +1,35 @@
+<!-- @dsCard group="Slide Layouts" name="04 Comparison (2 cards)" subtitle="2項目を左右で対比" -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Layout — Comparison</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;}
+  body{background:#e9edf1;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;}
+  .slide{width:100%;aspect-ratio:16/9;background:#FFFFFF;display:flex;flex-direction:column;justify-content:center;padding:6% 8%;}
+  .eyebrow{font-weight:700;font-size:1.5vw;letter-spacing:.12em;text-transform:uppercase;color:#00B2CA;}
+  h2{font-family:"Noto Serif JP",serif;font-size:2.8vw;margin:1.2% 0 0;background:linear-gradient(135deg,#00B2CA,#7DC83E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:2vw;margin-top:3.5%;}
+  .card{border:1px solid #e5e7eb;border-radius:1.2vw;padding:3% 3%;box-shadow:0 1px 3px rgba(0,0,0,.06);}
+  .tag{display:inline-block;background:#E6F8FB;color:#00B2CA;font-size:1vw;font-weight:700;padding:.4% 1.2%;border-radius:9999px;letter-spacing:.04em;}
+  .card h3{font-size:1.9vw;margin:1.5% 0 .5%;color:#2c2c2c;}
+  .num{font-size:3.2vw;font-weight:700;margin:.5% 0;}
+  .a .num{color:#00B2CA;}
+  .b .num{background:linear-gradient(135deg,#00B2CA,#7DC83E);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .card p{font-size:1.2vw;color:#444;line-height:1.7;}
+</style>
+</head>
+<body>
+  <div class="slide">
+    <span class="eyebrow">Compare</span>
+    <h2>2つを並べて読む</h2>
+    <div class="cards">
+      <div class="card a"><span class="tag">OPTION A</span><h3>選択肢A</h3><div class="num">90%</div><p>数値や特徴をここに。左右で対になる項目を置きます。</p></div>
+      <div class="card b"><span class="tag">OPTION B</span><h3>選択肢B</h3><div class="num">1.8pt</div><p>もう一方の数値や特徴。違いが一目で伝わります。</p></div>
+    </div>
+  </div>
+</body>
+</html>
