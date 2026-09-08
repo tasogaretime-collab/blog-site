@@ -12,7 +12,7 @@ cd /c/blog-site && npx astro dev --port 4321 &
 ※ `package.json` の scripts は `dev` / `build` / `preview`（`npm run dev` でも同じ）。
 
 ## OGP生成スクリプト（scripts/）
-`scripts/build-ogp.mjs`（1枚）・`scripts/build-all-ogps.mjs`（一括）＋ `templates/` `fonts/`。
+`scripts/build-ogp.mjs`（1枚）・`scripts/build-all-ogps.mjs`（一括）＋ `scripts/templates/` `scripts/fonts/`。
 別経路として、ルート直下の `generate-og.py` が **ローカル環境変数の `GEMINI_API_KEY` を読む**
 （Vercel にはシークレットを置いていない）。詳細は `scripts/README.md`。
 
@@ -50,6 +50,7 @@ cd /c/blog-site && npx astro dev --port 4321 &
 ## Knowledge Wiki 連携（必須参照）
 
 本ブログは感染症専門医 Tasunaro の個人ブログで、記事執筆時は **必ず** `C:\Users\unwoy\knowledge-wiki` を事前参照する。
+🔴 以下の `knowledge-wiki/...` は**すべてこの絶対パス基準**（本リポは `C:\blog-site` にあるため、作業ディレクトリからの相対では解決しない）。
 
 ### 記事執筆時のWiki参照フロー
 
