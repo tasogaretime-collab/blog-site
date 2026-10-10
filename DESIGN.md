@@ -288,11 +288,12 @@ Tasunaro Blog は感染症専門医の個人ブログ。**清潔感・信頼感�
 
 ## Claude Design Sync（2026-06-20〜）
 
-本デザインシステムは Claude Design（claude.ai/design）と同期済み。`DesignSync` ツールで双方向同期できる。
+**2026-10-10 に同期先が変わった。** 単体サイトの Claude Design（claude.ai/design）は 2026-12-14 に閉鎖され Claude 本体へ統合されるため、デザインシステムを Artifacts へ移行した。
 
-- projectId: `1fb36fa0-6682-455e-ad60-b71bfbca446b`（name: "Tasunaro Blog"）
+- 移行先（現行）: Design System 型の Artifact `https://claude.ai/artifact/NuF5vbB6D5A4fn8zzjfw1m`（"Tasunaro Blog"）。`project/` 以下に `design-system/` の14ファイルが中身そのまま入っている（移行レポートで0件脱落を確認）
+- 旧同期先: 単体サイトの projectId `1fb36fa0-6682-455e-ad60-b71bfbca446b`。`DesignSync` ツールでの同期はこの旧同期先向けで、**12-14 の閉鎖で終わる**。それまでに DesignSync で書き込んでも、Claude が使う移行先には反映されない（2つのコピーが食い違う）
 - ローカル storybook bundle: `design-system/`（各 `.html` の1行目に `<!-- @dsCard group="..." -->`）
-- 更新フロー: 本 DESIGN.md（正本）→ 該当 HTMLカード → DesignSync 再同期（1コンポーネントずつ）
+- 更新フロー: 本 DESIGN.md（正本）→ 該当 HTMLカード → 移行先の Artifact へ反映。**移行先の更新方法は未確認**（次に更新するときに確かめて、ここに書く）
 
 ## Slide Layouts（v1・2026-06-20）
 
